@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FamilyBite</title>
+<style>
+body{margin:0;background:#f7f8f5;font-family:Arial,sans-serif;color:#23342b}
+header{background:#238b64;color:white;padding:25px 18px}
+h1{margin:0;font-size:30px}
+main{padding:16px;max-width:600px;margin:auto}
+.card{background:white;border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 3px 12px #0001}
+button{background:#238b64;color:white;border:0;border-radius:12px;padding:12px;margin:4px;cursor:pointer}
+nav{display:flex;gap:6px}
+nav button{flex:1}
+input{padding:10px;width:70px}
+small{color:#66756b}
+</style>
+</head>
+<body>
+<header>
+<h1>🍽️ FamilyBite</h1>
+<p>Wat eten we vandaag?</p>
+</header>
+<main>
+<nav>
+<button onclick="show('recipes')">Recepten</button>
+<button onclick="show('week')">Weekmenu</button>
+<button onclick="show('list')">Boodschappen</button>
+</nav>
+<section id="recipes"></section>
+<section id="week" hidden></section>
+<section id="list" hidden></section>
+</main>
+<script>
+const dishes=[
+{name:"Surinaamse kip kerrie",type:"Surinaams",items:["kipdij","rijst","kerrie","ui"]},
+{name:"Jerk chicken met rijst",type:"Caribisch",items:["kip","rijst","jerk kruiden"]},
+{name:"Spaghetti bolognese",type:"Italiaans",items:["spaghetti","gehakt","tomaten","wortel"]},
+{name:"Honey garlic kip",type:"Aziatisch",items:["kip","knoflook","honing","rijst"]},
+{name:"Zelfgemaakte loempia's",type:"Snacks",items:["loempiavellen","kipgehakt","wortel"]},
+{name:"Mexicaanse wraps",type:"Mexicaans",items:["wraps","gehakt","sla","kaas"]}
+];
+const days=["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"];
+let plan=JSON.parse(localStorage.getItem("fbplan")||"{}");
+function save(){localStorage.setItem("fbplan",JSON.stringify(plan));render()}
+function show(id){
+["recipes","week","list"].forEach(x=>document.getElementById(x).hidden=x!==id);
+render()
+}
+function add(i){
+let d=days.find(x=>plan[x]===undefined);
+if(!d){alert("Je weekmenu is vol");return}
+plan[d]=i;save();alert(dishes[i].name+" toegevoegd aan "+d)
+}
+function render(){
+document.getElementById("recipes").innerHTML=
+"<h2>Receptinspiratie</h2>"+dishes.map((r,i)=>
+'<div class="card"><small>'+r.type+'</small><h3>'+r.name+
+'</h3><p>'+r.items.join(", ")+'</p><button onclick="add('+i+')">Toevoegen aan weekmenu</button></div>'
+).join("");
+document.getElementById("week").innerHTML=
+"<h2>Jouw weekmenu</h2>"+days.map(d=>
+'<div class="card"><b>'+d+'</b><p>'+(plan[d]===undefined?"Nog niets gepland":dishes[plan[d]].name)+
+'</p><button onclick="delete plan[\''+d+'\'];save()">Wissen</button></div>'
+).join("");
+let items=[];
+Object.values(plan).forEach(i=>items.push(...dishes[i].items));
+document.getElementById("list").innerHTML=
+"<h2>Boodschappenlijst</h2><div class='card'>"+
+([...new Set(items)].map(x=>"<p>☐ "+x+"</p>").join("")||"Plan eerst een maaltijd")+
+"</div>";
+}
+render();
+</script>
+</body>
+</html>
