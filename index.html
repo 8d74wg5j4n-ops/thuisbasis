@@ -3,76 +3,364 @@
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FamilyBite</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#238765">
+<title>ThuisBasis</title>
 <style>
-body{margin:0;background:#f7f8f5;font-family:Arial,sans-serif;color:#23342b}
-header{background:#238b64;color:white;padding:25px 18px}
-h1{margin:0;font-size:30px}
-main{padding:16px;max-width:600px;margin:auto}
-.card{background:white;border-radius:18px;padding:18px;margin:14px 0;box-shadow:0 3px 12px #0001}
-button{background:#238b64;color:white;border:0;border-radius:12px;padding:12px;margin:4px;cursor:pointer}
-nav{display:flex;gap:6px}
-nav button{flex:1}
-input{padding:10px;width:70px}
-small{color:#66756b}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f7f8f5;color:#24382f}
+header{background:#238765;color:white;padding:30px 20px}
+h1{margin:0;font-size:32px}
+header p{margin-bottom:0}
+main{padding:16px;max-width:700px;margin:auto}
+nav{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+button{background:#238765;color:white;border:0;border-radius:12px;padding:12px;cursor:pointer;font-size:14px}
+nav button{padding:12px 3px;font-size:12px}
+nav button.active{background:#164c3a}
+section{display:none}
+section.active{display:block}
+.card{background:white;padding:18px;border-radius:18px;margin:14px 0;box-shadow:0 4px 16px #0000000a}
+input,select,textarea{padding:12px;border:1px solid #ccd6cf;border-radius:9px;font-size:16px;max-width:100%}
+input[type=text],textarea{width:100%}
+textarea{min-height:80px}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0}
+.row input{flex:1;min-width:120px}
+.secondary{background:#e5f1e9;color:#18553e}
+.danger{background:#fbe7e7;color:#922b2b}
+.item{display:flex;align-items:center;gap:9px;border-bottom:1px solid #eee;padding:10px 0}
+.item span{flex:1;overflow-wrap:anywhere}
+.item input{width:20px;height:20px}
+.muted{color:#6b7970;font-size:14px}
+.tag{color:#238765;font-size:13px}
+footer{text-align:center;color:#718078;padding:20px;font-size:12px}
 </style>
 </head>
 <body>
+
 <header>
-<h1>🍽️ FamilyBite</h1>
-<p>Wat eten we vandaag?</p>
+<h1>🏡 ThuisBasis</h1>
+<p>Alles voor thuis, op één plek.</p>
 </header>
+
 <main>
 <nav>
-<button onclick="show('recipes')">Recepten</button>
-<button onclick="show('week')">Weekmenu</button>
-<button onclick="show('list')">Boodschappen</button>
+<button onclick="tab('recepten')">🍲 Recepten</button>
+<button onclick="tab('weekmenu')">📅 Weekmenu</button>
+<button onclick="tab('boodschappen')">🛒 Boodschappen</button>
+<button onclick="tab('voorraad')">📦 Voorraad</button>
+<button onclick="tab('aanvullen')">🔔 Aanvullen</button>
+<button onclick="tab('instellingen')">⚙️ Instellingen</button>
 </nav>
-<section id="recipes"></section>
-<section id="week" hidden></section>
-<section id="list" hidden></section>
+
+<section id="recepten">
+<h2>Wat eten we vandaag?</h2>
+<p class="muted">Kies een gerecht voor je weekmenu.</p>
+<div id="recipes"></div>
+<div class="card">
+<h3>Eigen recept toevoegen</h3>
+<input id="recipeName" type="text" placeholder="Naam gerecht">
+<div class="row">
+<input id="recipeCuisine" type="text" placeholder="Keuken, bijv. Caribisch">
+</div>
+<textarea id="recipeIngredients" placeholder="Ingrediënten, gescheiden door komma's"></textarea>
+<div class="row"><button onclick="addRecipe()">Recept bewaren</button></div>
+</div>
+</section>
+
+<section id="weekmenu">
+<h2>Jouw weekmenu</h2>
+<div id="days"></div>
+</section>
+
+<section id="boodschappen">
+<h2>Boodschappenlijst</h2>
+<p class="muted">Voor eten, drinken en alle non-foodartikelen.</p>
+<div class="card">
+<input id="shoppingName" type="text" placeholder="Bijv. melk of wasmiddel">
+<div class="row">
+<select id="shoppingCategory">
+<option>Eten & drinken</option>
+<option>Huishouden</option>
+<option>Verzorging</option>
+<option>Kinderen</option>
+<option>Overig</option>
+</select>
+<button onclick="addShopping()">Toevoegen</button>
+</div>
+<div id="shoppingList"></div>
+</div>
+</section>
+
+<section id="voorraad">
+<h2>Wat hebben we in huis?</h2>
+<p class="muted">Van knoflook en rijst tot shampoo en wasmiddel.</p>
+<div class="card">
+<input id="stockName" type="text" placeholder="Product">
+<div class="row">
+<input id="stockQty" type="text" placeholder="Hoeveelheid (optioneel)">
+</div>
+<div class="row">
+<select id="stockCategory">
+<option>Keuken</option>
+<option>Koelkast</option>
+<option>Vriezer</option>
+<option>Huishouden</option>
+<option>Verzorging</option>
+<option>Overig</option>
+</select>
+<button onclick="addStock()">In voorraad</button>
+</div>
+<div id="stockList"></div>
+</div>
+</section>
+
+<section id="aanvullen">
+<h2>Niet vergeten aan te vullen</h2>
+<p class="muted">Een lijst van producten die bijna op zijn.</p>
+<div class="card">
+<div class="row">
+<input id="refillName" type="text" placeholder="Wat is bijna op?">
+<button onclick="addRefill()">Toevoegen</button>
+</div>
+<div id="refillList"></div>
+</div>
+</section>
+
+<section id="instellingen">
+<h2>Instellingen</h2>
+<div class="card">
+<h3>Privé op je iPhone</h3>
+<p>Je gegevens worden lokaal in deze browser bewaard. Andere gezinsleden kunnen ze nog niet automatisch zien.</p>
+<p class="muted">Verwijder je browsergegevens, dan kunnen je lijsten verdwijnen.</p>
+<button onclick="backup()">Back-up downloaden</button>
+<p>Back-up terugzetten:</p>
+<input type="file" accept=".json" onchange="restore(event)">
+</div>
+</section>
+
 </main>
+<footer>ThuisBasis 0.2 · Gratis gezinsprototype</footer>
+
 <script>
-const dishes=[
-{name:"Surinaamse kip kerrie",type:"Surinaams",items:["kipdij","rijst","kerrie","ui"]},
-{name:"Jerk chicken met rijst",type:"Caribisch",items:["kip","rijst","jerk kruiden"]},
-{name:"Spaghetti bolognese",type:"Italiaans",items:["spaghetti","gehakt","tomaten","wortel"]},
-{name:"Honey garlic kip",type:"Aziatisch",items:["kip","knoflook","honing","rijst"]},
-{name:"Zelfgemaakte loempia's",type:"Snacks",items:["loempiavellen","kipgehakt","wortel"]},
-{name:"Mexicaanse wraps",type:"Mexicaans",items:["wraps","gehakt","sla","kaas"]}
+const KEY="thuisbasis-v02";
+
+const starter=[
+{name:"Surinaamse kip kerrie",cuisine:"Surinaams",ingredients:["kipdij","rijst","kerrie","ui"]},
+{name:"Jerk chicken met rijst",cuisine:"Caribisch",ingredients:["kip","rijst","jerk kruiden"]},
+{name:"Spaghetti bolognese",cuisine:"Italiaans",ingredients:["spaghetti","gehakt","tomatensaus","ui"]},
+{name:"Kip broccoli met rijst",cuisine:"Aziatisch",ingredients:["kip","broccoli","rijst","sojasaus"]},
+{name:"Taco avond",cuisine:"Mexicaans",ingredients:["tortilla's","gehakt","sla","kaas"]},
+{name:"Frietjes met snacks",cuisine:"Snacks",ingredients:["friet","snacks","saus"]}
 ];
-const days=["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"];
-let plan=JSON.parse(localStorage.getItem("fbplan")||"{}");
-function save(){localStorage.setItem("fbplan",JSON.stringify(plan));render()}
-function show(id){
-["recipes","week","list"].forEach(x=>document.getElementById(x).hidden=x!==id);
-render()
+
+const weekdays=["Maandag","Dinsdag","Woensdag","Donderdag","Vrijdag","Zaterdag","Zondag"];
+
+let saved={};
+try{saved=JSON.parse(localStorage.getItem(KEY))||{}}catch(e){}
+
+let data={
+recipes:starter,
+menu:{},
+shopping:[],
+stock:[],
+refill:[],
+...saved
+};
+
+function get(id){return document.getElementById(id)}
+
+function clean(s){
+return String(s).replace(/[&<>"']/g,c=>({
+"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+}[c]));
 }
-function add(i){
-let d=days.find(x=>plan[x]===undefined);
-if(!d){alert("Je weekmenu is vol");return}
-plan[d]=i;save();alert(dishes[i].name+" toegevoegd aan "+d)
-}
-function render(){
-document.getElementById("recipes").innerHTML=
-"<h2>Receptinspiratie</h2>"+dishes.map((r,i)=>
-'<div class="card"><small>'+r.type+'</small><h3>'+r.name+
-'</h3><p>'+r.items.join(", ")+'</p><button onclick="add('+i+')">Toevoegen aan weekmenu</button></div>'
-).join("");
-document.getElementById("week").innerHTML=
-"<h2>Jouw weekmenu</h2>"+days.map(d=>
-'<div class="card"><b>'+d+'</b><p>'+(plan[d]===undefined?"Nog niets gepland":dishes[plan[d]].name)+
-'</p><button onclick="delete plan[\''+d+'\'];save()">Wissen</button></div>'
-).join("");
-let items=[];
-Object.values(plan).forEach(i=>items.push(...dishes[i].items));
-document.getElementById("list").innerHTML=
-"<h2>Boodschappenlijst</h2><div class='card'>"+
-([...new Set(items)].map(x=>"<p>☐ "+x+"</p>").join("")||"Plan eerst een maaltijd")+
-"</div>";
-}
+
+function save(){
+localStorage.setItem(KEY,JSON.stringify(data));
 render();
+}
+
+function tab(name){
+document.querySelectorAll("section").forEach(s=>{
+s.classList.toggle("active",s.id===name);
+});
+document.querySelectorAll("nav button").forEach(b=>{
+b.classList.toggle("active",b.getAttribute("onclick")==="tab('"+name+"')");
+});
+}
+
+function render(){
+get("recipes").innerHTML=data.recipes.map((r,i)=>`
+<div class="card">
+<span class="tag">${clean(r.cuisine)}</span>
+<h3>${clean(r.name)}</h3>
+<p>${clean(r.ingredients.join(", "))}</p>
+<div class="row">
+<select id="day${i}">
+${weekdays.map(d=>`<option>${d}</option>`).join("")}
+</select>
+<button onclick="plan(${i})">In weekmenu</button>
+<button class="secondary" onclick="ingredients(${i})">Ingrediënten kiezen</button>
+</div>
+</div>
+`).join("");
+
+get("days").innerHTML=weekdays.map(d=>`
+<div class="card">
+<h3>${d}</h3>
+<p>${clean(data.menu[d]||"Nog niets gepland")}</p>
+<button class="secondary" onclick="tab('recepten')">Kies recept</button>
+${data.menu[d]?`<button class="danger" onclick="removeDay('${d}')">Wissen</button>`:""}
+</div>
+`).join("");
+
+get("shoppingList").innerHTML=data.shopping.length?
+data.shopping.map((x,i)=>`
+<div class="item">
+<input type="checkbox" ${x.done?"checked":""} onchange="toggleShopping(${i})">
+<span style="${x.done?"text-decoration:line-through;opacity:.5":""}">
+${clean(x.name)}
+<small class="muted">${clean(x.category)}</small>
+</span>
+<button class="danger" onclick="removeShopping(${i})">×</button>
+</div>
+`).join(""):"<p class='muted'>Nog geen boodschappen.</p>";
+
+get("stockList").innerHTML=data.stock.length?
+data.stock.map((x,i)=>`
+<div class="item">
+<span><b>${clean(x.name)}</b> ${clean(x.qty)} <small class="muted">${clean(x.category)}</small></span>
+<button class="secondary" onclick="stockToRefill(${i})">Bijna op</button>
+<button class="danger" onclick="removeStock(${i})">×</button>
+</div>
+`).join(""):"<p class='muted'>Nog geen voorraad toegevoegd.</p>";
+
+get("refillList").innerHTML=data.refill.length?
+data.refill.map((x,i)=>`
+<div class="item">
+<span>${clean(x)}</span>
+<button class="secondary" onclick="refillToShopping(${i})">Naar boodschappen</button>
+<button class="danger" onclick="removeRefill(${i})">×</button>
+</div>
+`).join(""):"<p class='muted'>Niets om aan te vullen.</p>";
+}
+
+function plan(i){
+let d=get("day"+i).value;
+data.menu[d]=data.recipes[i].name;
+save();
+alert("Toegevoegd aan "+d);
+}
+
+function removeDay(d){delete data.menu[d];save()}
+
+function ingredients(i){
+let r=data.recipes[i];
+let missing=r.ingredients.filter(x=>
+!data.stock.some(s=>s.name.toLowerCase()===x.toLowerCase())
+);
+if(!missing.length){
+alert("Alle ingrediënten staan al in je voorraad.");
+return;
+}
+let answer=prompt("Verwijder wat je al in huis hebt:",missing.join(", "));
+if(answer===null)return;
+answer.split(",").map(x=>x.trim()).filter(Boolean).forEach(name=>{
+data.shopping.push({name,category:"Eten & drinken",done:false});
+});
+save();
+tab("boodschappen");
+}
+
+function addRecipe(){
+let name=get("recipeName").value.trim();
+if(!name)return alert("Vul een gerecht in.");
+data.recipes.push({
+name,
+cuisine:get("recipeCuisine").value.trim()||"Eigen recept",
+ingredients:get("recipeIngredients").value.split(",").map(x=>x.trim()).filter(Boolean)
+});
+get("recipeName").value="";
+get("recipeCuisine").value="";
+get("recipeIngredients").value="";
+save();
+}
+
+function addShopping(){
+let name=get("shoppingName").value.trim();
+if(!name)return;
+data.shopping.push({name,category:get("shoppingCategory").value,done:false});
+get("shoppingName").value="";
+save();
+}
+
+function toggleShopping(i){data.shopping[i].done=!data.shopping[i].done;save()}
+function removeShopping(i){data.shopping.splice(i,1);save()}
+
+function addStock(){
+let name=get("stockName").value.trim();
+if(!name)return;
+data.stock.push({
+name,
+qty:get("stockQty").value.trim(),
+category:get("stockCategory").value
+});
+get("stockName").value="";
+get("stockQty").value="";
+save();
+}
+
+function removeStock(i){data.stock.splice(i,1);save()}
+
+function stockToRefill(i){
+let name=data.stock[i].name;
+if(!data.refill.includes(name))data.refill.push(name);
+save();
+tab("aanvullen");
+}
+
+function addRefill(){
+let name=get("refillName").value.trim();
+if(!name)return;
+if(!data.refill.includes(name))data.refill.push(name);
+get("refillName").value="";
+save();
+}
+
+function removeRefill(i){data.refill.splice(i,1);save()}
+
+function refillToShopping(i){
+let name=data.refill[i];
+data.shopping.push({name,category:"Overig",done:false});
+data.refill.splice(i,1);
+save();
+tab("boodschappen");
+}
+
+function backup(){
+let blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json"});
+let a=document.createElement("a");
+a.href=URL.createObjectURL(blob);
+a.download="thuisbasis-backup.json";
+a.click();
+setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+}
+
+async function restore(event){
+let file=event.target.files[0];
+if(!file)return;
+try{
+let restored=JSON.parse(await file.text());
+if(!Array.isArray(restored.shopping)||!Array.isArray(restored.stock))throw Error();
+if(confirm("Huidige gegevens vervangen door back-up?")){
+data=restored;
+save();
+}
+}catch(e){alert("Back-up kan niet worden gelezen.");}
+}
+
+render();
+tab("recepten");
 </script>
 </body>
 </html>
