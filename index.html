@@ -6,63 +6,66 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#238765">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="ThuisBasis">
-<title>ThuisBasis 1.0</title>
+<title>ThuisBasis 1.1</title>
 <style>
-:root{--g:#238765;--d:#164c3a;--bg:#f7f8f5;--line:#e0e8e2}
+:root{
+ --green:#238765;--dark:#164c3a;--bg:#f6f8f5;
+ --line:#dfe8e1;--muted:#64746a
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:#24382f;font:15px Arial,sans-serif}
-header{background:var(--g);color:white;padding:25px 17px}
-header h1{margin:0;font-size:30px}
+body{margin:0;background:var(--bg);color:#26382f;font:15px Arial,sans-serif}
+header{background:var(--green);color:white;padding:24px 17px}
+header h1{font-size:29px;margin:0}
 header p{margin:7px 0 0}
-main{max-width:850px;margin:auto;padding:12px}
+main{max-width:900px;margin:auto;padding:12px}
 nav{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-button{background:var(--g);color:white;border:0;border-radius:10px;padding:11px;cursor:pointer;font-size:13px}
+button{background:var(--green);color:white;border:0;border-radius:10px;padding:11px;cursor:pointer;font-size:13px}
 button:disabled{opacity:.5}
 nav button{font-size:11px;padding:12px 3px}
-nav button.active{background:var(--d)}
-.secondary{background:#e5f1e9;color:#18553e}
-.danger{background:#fbe7e7;color:#922b2b}
-.card{background:white;border-radius:16px;padding:16px;margin:13px 0;box-shadow:0 3px 12px #00000008}
+nav button.active{background:var(--dark)}
+.secondary{background:#e4f0e8;color:#18553e}
+.danger{background:#f9e4e4;color:#a02d2d}
+.card{background:white;border-radius:15px;padding:15px;margin:12px 0;box-shadow:0 2px 10px #00000008}
 section{display:none}
 section.active{display:block}
-h2{font-size:23px;margin:18px 3px}
+h2{font-size:23px;margin:20px 3px}
 h3{font-size:17px;margin:8px 0 12px}
-input,select,textarea{font:16px Arial;padding:11px;border:1px solid #ccd7ce;border-radius:9px;max-width:100%;background:white;color:#24382f}
+input,select,textarea{
+ font:16px Arial;padding:11px;border:1px solid #ccd7ce;
+ border-radius:9px;background:white;color:#26382f;max-width:100%
+}
 input[type=text],input[type=number],input[type=date],textarea{width:100%}
-input[type=checkbox]{width:20px;height:20px;accent-color:var(--g)}
+input[type=checkbox]{width:20px;height:20px;accent-color:var(--green)}
 textarea{min-height:75px}
+label{display:block;font-size:13px;color:var(--muted);margin:10px 0 5px}
 .row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:9px 0}
 .row>*{flex:1;min-width:85px}
 .row button{flex:0 0 auto}
 .item{display:flex;align-items:center;gap:8px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding:11px 0}
-.grow{flex:1;min-width:145px;overflow-wrap:anywhere}
-.muted{font-size:13px;color:#6b7970}
-.tag{font-size:12px;color:var(--g)}
-.pill{display:inline-block;border-radius:20px;background:#e5f1e9;color:#18553e;padding:5px 9px;font-size:12px}
+.grow{flex:1;min-width:130px;overflow-wrap:anywhere}
+.muted{font-size:13px;color:var(--muted)}
+.tag{font-size:12px;color:var(--green)}
+.pill{display:inline-block;background:#e4f0e8;color:#18553e;padding:5px 9px;border-radius:20px;font-size:12px}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
-.stat{padding:15px;border-radius:12px;background:white}
+.stat{padding:15px;background:white;border-radius:12px}
 .stat strong{display:block;font-size:23px;margin-top:6px}
 .small{font-size:12px;padding:8px}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
-.chips button{padding:8px}
-.photo{width:78px;height:78px;object-fit:cover;border-radius:9px}
-.notice{padding:12px;background:#fff4d9;border-radius:10px;margin:10px 0}
-.success{background:#e5f1e9}
-label{display:block;margin:9px 0 4px}
-details{margin:10px 0}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
+.notice{padding:12px;border-radius:10px;background:#fff3d8;margin:10px 0}
+.success{background:#e4f0e8}
+.photo{width:75px;height:75px;object-fit:cover;border-radius:9px}
+details{margin:9px 0}
 summary{cursor:pointer;font-weight:bold}
-hr{border:0;border-top:1px solid var(--line);margin:17px 0}
-footer{text-align:center;color:#718078;padding:20px;font-size:12px}
+hr{border:0;border-top:1px solid var(--line);margin:15px 0}
+footer{text-align:center;padding:20px;color:var(--muted);font-size:12px}
 @media(max-width:420px){.card{padding:12px}.item button{padding:8px}}
 </style>
 </head>
 <body>
 <header>
 <h1>🏡 ThuisBasis</h1>
-<p>Alles voor thuis, op één plek.</p>
+<p>Meer overzicht. Minder gedoe.</p>
 </header>
-
 <main>
 <nav>
 <button data-tab="home">🏠 Home</button>
@@ -74,7 +77,6 @@ footer{text-align:center;color:#718078;padding:20px;font-size:12px}
 <button data-tab="planning">📋 Planning</button>
 <button data-tab="more">⚙️ Meer</button>
 </nav>
-
 <p id="status" class="muted"></p>
 
 <section id="home">
@@ -97,37 +99,39 @@ footer{text-align:center;color:#718078;padding:20px;font-size:12px}
 <div class="chips">
 <button class="secondary" onclick="recipeMode='all';renderRecipes()">Alles</button>
 <button class="secondary" onclick="recipeMode='favorites';renderRecipes()">❤️ Favorieten</button>
-<button class="secondary" onclick="recipeMode='possible';renderRecipes()">🥘 Uit voorraad</button>
+<button class="secondary" onclick="recipeMode='possible';renderRecipes()">🥘 In huis</button>
 </div>
 </div>
 <div id="recipeList"></div>
-<div class="card">
+<div class="card" id="recipeForm">
 <h3>Recept toevoegen of bewerken</h3>
 <input type="hidden" id="recipeEdit">
-<input id="rName" placeholder="Naam recept">
+<label>Naam</label>
+<input id="rName" placeholder="Bijvoorbeeld kip met rijst">
 <div class="row">
 <select id="rType">
 <option>Avondeten</option><option>Ontbijt</option>
 <option>Lunch</option><option>Snack</option><option>Traktatie</option>
 </select>
-<input id="rServings" type="number" min="1" value="4" placeholder="Porties">
+<input id="rServings" type="number" min="1" value="4">
 </div>
-<textarea id="rIngredients" placeholder="Eén ingrediënt per regel:
-600 g kipdij
-300 g rijst
-2 st ui"></textarea>
-<textarea id="rSteps" placeholder="Bereiding, één stap per regel"></textarea>
+<label>Ingrediënten</label>
+<textarea id="rIngredients" placeholder="600 gr kipdij
+300 gram rijst
+2 uien"></textarea>
+<label>Bereiding</label>
+<textarea id="rSteps" placeholder="Eén bereidingsstap per regel"></textarea>
 <div class="row">
-<button onclick="saveRecipe()">Recept bewaren</button>
+<button onclick="saveRecipe()">Bewaren</button>
 <button class="secondary" onclick="resetRecipe()">Annuleren</button>
 </div>
-<p class="muted">Ingrediënten zonder exacte hoeveelheid worden niet automatisch afgeschreven.</p>
 </div>
 </section>
 
 <section id="menu">
-<h2>Maaltijdplanning</h2>
+<h2>Weekmenu</h2>
 <div class="card">
+<h3>Maaltijd plannen</h3>
 <input type="hidden" id="mealEdit">
 <div class="row">
 <input id="mealDate" type="date">
@@ -143,8 +147,9 @@ footer{text-align:center;color:#718078;padding:20px;font-size:12px}
 </div>
 <div class="row">
 <button class="secondary" onclick="copyWeek()">Week kopiëren</button>
-<button class="secondary" onclick="menuToShopping()">Tekorten naar boodschappen</button>
+<button class="secondary" onclick="menuToShopping()">Tekorten toevoegen</button>
 </div>
+<p class="muted">Maaltijden plannen of bereiden verandert je voorraad niet.</p>
 </div>
 <div id="mealList"></div>
 </section>
@@ -152,108 +157,118 @@ footer{text-align:center;color:#718078;padding:20px;font-size:12px}
 <section id="stock">
 <h2>Mijn voorraad</h2>
 <div class="card">
+<h3>Voorraadcheck</h3>
+<p class="muted">Controleer je voorraad één keer vóór de boodschappenronde. Je hoeft tussendoor niets bij te houden.</p>
 <div class="row">
 <input id="stockSearch" placeholder="Zoek product">
 <select id="stockLocationFilter"></select>
 </div>
 <div class="chips">
 <button class="secondary" onclick="stockMode='all';renderStock()">Alles</button>
-<button class="secondary" onclick="stockMode='low';renderStock()">Bijna op</button>
+<button class="secondary" onclick="stockMode='low';renderStock()">Aanvullen</button>
 <button class="secondary" onclick="stockMode='expiry';renderStock()">Houdbaarheid</button>
+<button onclick="reviewStock()">Voorraadcheck starten</button>
 </div>
 </div>
-
-<div class="card">
-<h3>Voorraad toevoegen of wijzigen</h3>
-<input type="hidden" id="batchEdit">
-<input id="sName" placeholder="Productnaam">
+<div class="card" id="stockForm">
+<h3>Product toevoegen of bewerken</h3>
+<input type="hidden" id="stockEdit">
+<label>Productnaam</label>
+<input id="sName" placeholder="Bijvoorbeeld melk">
 <div class="row">
-<input id="sPacks" type="number" min="1" step="1" value="1" placeholder="Aantal verpakkingen">
-<input id="sQty" type="number" min="0.001" step="any" placeholder="Inhoud per verpakking">
+<div>
+<label>Aantal verpakkingen</label>
+<select id="sPacks">
+<option value="0">0</option>
+<option value="1">1</option><option value="2">2</option>
+<option value="3">3</option><option value="4">4</option>
+<option value="5">5</option><option value="6">6</option>
+<option value="8">8</option><option value="10">10</option>
+<option value="other">Anders...</option>
+</select>
+<input id="sPacksOther" type="number" min="0" step="1" placeholder="Eigen aantal" hidden>
+</div>
+<div>
+<label>Inhoud per verpakking</label>
+<input id="sQty" type="number" min=".001" step="any" value="1">
+</div>
+<div>
+<label>Eenheid</label>
 <select id="sUnit">
-<option value="g">gram</option><option value="kg">kg</option>
-<option value="ml">ml</option><option value="l">liter</option>
-<option value="st">stuks</option>
+<option value="st">Stuks</option><option value="g">Gram</option>
+<option value="kg">Kilogram</option><option value="ml">Milliliter</option>
+<option value="l">Liter</option>
 </select>
 </div>
-<div class="row">
+</div>
+<label>Opslaglocatie</label>
 <select id="sLocation"></select>
-<select id="sState">
-<option value="sealed">Ongeopend</option>
-<option value="opened">Geopend</option>
-<option value="leftover">Bereid restje</option>
-</select>
-</div>
-<label class="muted">Houdbaarheidsdatum</label>
-<input id="sExpiry" type="date">
+<input id="sLocationOther" placeholder="Nieuwe opslaglocatie" hidden>
 <div class="row">
-<div style="flex:1">
-<label class="muted">Geopend op</label>
-<input id="sOpened" type="date">
+<div>
+<label>Gewenste voorraad (verpakkingen)</label>
+<input id="sTarget" type="number" min="0" step="1" value="0">
 </div>
-<div style="flex:1">
-<label class="muted">Ingevroren op</label>
-<input id="sFrozen" type="date">
+<div>
+<label>Houdbaar tot (optioneel)</label>
+<input id="sExpiry" type="date">
 </div>
 </div>
-<label class="muted">Productfoto (optioneel)</label>
-<input id="sPhoto" type="file" accept="image/*" capture="environment">
+<label>Productfoto (optioneel)</label>
+<input id="sPhoto" type="file" accept="image/*">
 <div class="row">
 <button onclick="saveStock()">Voorraad bewaren</button>
 <button class="secondary" onclick="resetStockForm()">Annuleren</button>
 <button class="secondary" onclick="scanBarcode()">📷 Barcode</button>
 </div>
-<p class="muted">Bijvoorbeeld: 6 verpakkingen × 1 liter. Iedere verpakking wordt afzonderlijk opgeslagen.</p>
 </div>
-
 <div class="card">
 <h3>Meerdere producten invoeren</h3>
-<textarea id="bulkInput" placeholder="1 kg kipdij
-800 g gehakt
-2 st wasmiddel"></textarea>
-<div class="row">
+<textarea id="bulkInput" placeholder="6 x 1 liter melk
+3 pakken rijst
+2 flessen wasmiddel"></textarea>
+<label>Opslaglocatie</label>
 <select id="bulkLocation"></select>
+<div class="row">
 <button onclick="previewBulk()">Controleren</button>
 </div>
 <div id="bulkPreview"></div>
 </div>
-
 <div class="card">
-<h3>📸 Voorraadfoto's</h3>
-<p class="muted">Foto's van je vriezer, voorraadkast of afzonderlijke producten. AI-herkenning is nog niet gekoppeld.</p>
-<input id="overviewPhoto" type="file" accept="image/*" capture="environment">
+<h3>📸 Foto's van je voorraad</h3>
+<input id="overviewPhoto" type="file" accept="image/*">
 <button onclick="saveOverview()">Foto bewaren</button>
 <div id="overviewList"></div>
 </div>
-
 <div id="stockList"></div>
 </section>
 
 <section id="shopping">
 <h2>Boodschappen</h2>
-<div class="card">
-<h3>Toevoegen of wijzigen</h3>
+<div class="card" id="shoppingForm">
+<h3>Toevoegen of bewerken</h3>
 <input type="hidden" id="shoppingEdit">
-<input id="qName" placeholder="Product of artikel">
+<label>Product</label>
+<input id="qName" placeholder="Wat heb je nodig?">
 <div class="row">
-<input id="qQty" type="number" min="0.001" step="any" value="1">
-<select id="qUnit">
-<option value="st">stuks</option>
-<option value="g">gram</option><option value="kg">kg</option>
-<option value="ml">ml</option><option value="l">liter</option>
-</select>
+<div>
+<label>Aantal verpakkingen</label>
+<input id="qQty" type="number" min="1" step="1" value="1">
 </div>
-<div class="row">
+<div>
+<label>Winkel</label>
 <select id="qStore"></select>
-<input id="qPrice" type="number" min="0" step=".01" placeholder="Prijs €">
 </div>
+</div>
+<label>Verwachte totaalprijs (€), optioneel</label>
+<input id="qPrice" type="number" min="0" step=".01">
 <div class="row">
 <button onclick="saveShopping()">Bewaren</button>
 <button class="secondary" onclick="resetShoppingForm()">Annuleren</button>
 </div>
 <div class="chips">
-<button class="secondary" onclick="addFavorites()">Favorieten toevoegen</button>
-<button class="secondary" onclick="reusePurchased()">Gekochte producten hergebruiken</button>
+<button class="secondary" onclick="addFavorites()">Favorieten</button>
+<button class="secondary" onclick="reusePurchased()">Eerdere lijst</button>
 <button class="secondary" onclick="tab('shopmode')">🛍️ Winkelmodus</button>
 </div>
 </div>
@@ -264,16 +279,21 @@ footer{text-align:center;color:#718078;padding:20px;font-size:12px}
 <div class="card">
 <h3>✅ Gekocht</h3>
 <div id="purchasedList"></div>
+<div class="row">
+<button onclick="finishShopping()">Boodschappen afronden</button>
 <button class="secondary" onclick="clearPurchased()">Gekocht opruimen</button>
+</div>
 </div>
 </section>
 
 <section id="shopmode">
 <h2>🛍️ Winkelmodus</h2>
 <div class="card">
-<label>Winkel</label>
+<label>Bij welke winkel ben je?</label>
 <select id="shopModeStore"></select>
+<p class="muted">Producten zonder vaste winkel worden ook getoond.</p>
 <div id="shopModeList"></div>
+<button onclick="finishShopping()">Boodschappen afronden</button>
 </div>
 <button class="secondary" onclick="tab('shopping')">Terug naar boodschappen</button>
 </section>
@@ -283,30 +303,42 @@ footer{text-align:center;color:#718078;padding:20px;font-size:12px}
 <div class="card">
 <h3>Mijn budget</h3>
 <div class="row">
-<input id="weeklyBudget" type="number" min="0" step=".01" placeholder="Weekbudget">
-<input id="monthlyBudget" type="number" min="0" step=".01" placeholder="Maandbudget">
-<button onclick="saveBudget()">Bewaren</button>
+<div>
+<label>Weekbudget (€)</label>
+<input id="weeklyBudget" type="number" min="0" step=".01">
 </div>
+<div>
+<label>Maandbudget (€)</label>
+<input id="monthlyBudget" type="number" min="0" step=".01">
+</div>
+</div>
+<button onclick="saveBudget()">Budget bewaren</button>
 <div id="budgetSummary"></div>
 </div>
 <div class="card">
-<h3>Kassabon toevoegen of wijzigen</h3>
+<h3>Kassabon toevoegen of bewerken</h3>
 <input type="hidden" id="receiptEdit">
 <div class="row">
+<div>
+<label>Winkel</label>
 <select id="receiptStore"></select>
+</div>
+<div>
+<label>Datum</label>
 <input id="receiptDate" type="date">
 </div>
-<div class="row">
-<input id="receiptTotal" type="number" min="0" step=".01" placeholder="Totaal €">
-<input id="receiptNote" placeholder="Notitie">
 </div>
-<label class="muted">Kassabonfoto (optioneel)</label>
-<input id="receiptPhoto" type="file" accept="image/*" capture="environment">
+<label>Totaalbedrag (€)</label>
+<input id="receiptTotal" type="number" min="0" step=".01">
+<label>Notitie</label>
+<input id="receiptNote" placeholder="Bijvoorbeeld weekboodschappen">
+<label>Foto kassabon (optioneel)</label>
+<input id="receiptPhoto" type="file" accept="image/*">
 <div class="row">
 <button onclick="saveReceipt()">Kassabon bewaren</button>
 <button class="secondary" onclick="resetReceipt()">Annuleren</button>
 </div>
-<p class="muted">Een kassabon telt precies één keer mee. Productprijzen zijn optioneel; een kassabonfoto wordt niet automatisch uitgelezen.</p>
+<p class="muted">Iedere kassabon telt één keer mee in je uitgaven.</p>
 </div>
 <div class="card">
 <h3>Uitgavenhistorie</h3>
@@ -319,7 +351,8 @@ footer{text-align:center;color:#718078;padding:20px;font-size:12px}
 <div class="card">
 <h3>Huishoudelijke taken</h3>
 <input type="hidden" id="taskEdit">
-<input id="taskTitle" placeholder="Bijvoorbeeld beddengoed verschonen">
+<label>Taak</label>
+<input id="taskTitle" placeholder="Bijvoorbeeld bedden verschonen">
 <div class="row">
 <input id="taskDate" type="date">
 <select id="taskRepeat">
@@ -328,14 +361,15 @@ footer{text-align:center;color:#718078;padding:20px;font-size:12px}
 <option value="weekly">Wekelijks</option>
 <option value="monthly">Maandelijks</option>
 </select>
-<button onclick="saveTask()">Bewaren</button>
 </div>
+<button onclick="saveTask()">Taak bewaren</button>
 <div id="taskList"></div>
 </div>
-<div class="card">
+<div class="card" id="projectForm">
 <h3>School, traktaties & verjaardagen</h3>
 <input type="hidden" id="projectEdit">
-<input id="projectTitle" placeholder="Naam activiteit">
+<label>Naam project</label>
+<input id="projectTitle" placeholder="Bijvoorbeeld brandweerfeest">
 <div class="row">
 <select id="projectType">
 <option>School</option><option>Traktatie</option>
@@ -343,8 +377,13 @@ footer{text-align:center;color:#718078;padding:20px;font-size:12px}
 </select>
 <input id="projectDate" type="date">
 </div>
-<input id="projectBudget" type="number" min="0" step=".01" placeholder="Budget €">
-<textarea id="projectItems" placeholder="Benodigdheden, één per regel"></textarea>
+<label>Budget (€)</label>
+<input id="projectBudget" type="number" min="0" step=".01">
+<label>Benodigdheden</label>
+<textarea id="projectItems" placeholder="Ballonnen, rode bekers, servetten. Slingers"></textarea>
+<p class="muted">Gebruik komma's, punten of nieuwe regels. Je kunt de herkende producten controleren voordat je ze opslaat.</p>
+<button class="secondary" onclick="previewProjectItems()">Invoer controleren</button>
+<div id="projectPreview"></div>
 <button onclick="saveProject()">Project bewaren</button>
 <div id="projectList"></div>
 </div>
@@ -353,27 +392,26 @@ footer{text-align:center;color:#718078;padding:20px;font-size:12px}
 <section id="more">
 <h2>Meer & instellingen</h2>
 <div class="card">
-<h3>🏷️ Nederlandse reclamefolders</h3>
-<p class="muted">Open de actuele aanbiedingen via de winkels. De app haalt nog geen folderprijzen automatisch op.</p>
+<h3>🏷️ Nederlandse aanbiedingen</h3>
+<p class="muted">Links naar winkels. Actuele folderprijzen worden niet automatisch ingelezen.</p>
 <div id="folderList"></div>
 </div>
 <div class="card">
 <h3>Mijn winkels</h3>
-<p class="muted">Duitse winkels zijn optioneel voor boodschappen. Reclamefolders blijven Nederlands.</p>
+<p class="muted">Duitse winkels zijn optioneel voor boodschappen, niet voor reclamefolders.</p>
 <div id="storeSettings"></div>
 </div>
 <div class="card">
-<h3>Gegevens & back-ups</h3>
-<p class="muted">Alles wordt lokaal in je browser bewaard. Geen synchronisatie met andere apparaten.</p>
+<h3>Back-up & herstel</h3>
 <div class="row">
 <button onclick="exportBackup()">Volledige back-up</button>
-<label class="secondary" style="padding:11px;border-radius:10px;cursor:pointer">
+<label class="secondary" style="padding:11px;border-radius:10px">
 Back-up herstellen
 <input type="file" accept=".json" style="display:none" onchange="importBackup(event)">
 </label>
 </div>
 <div class="row">
-<button class="secondary" onclick="undo()">↩ Laatste wijziging herstellen</button>
+<button class="secondary" onclick="undo()">↩ Laatste wijziging terugdraaien</button>
 <button class="secondary" onclick="storageCheck()">Opslag controleren</button>
 </div>
 <p id="storageInfo" class="muted"></p>
@@ -384,39 +422,50 @@ Back-up herstellen
 </div>
 </section>
 </main>
-
-<footer>ThuisBasis 1.0 · Persoonlijke huishoudapp</footer>
+<footer>ThuisBasis 1.1 · Voor thuis, zonder gedoe</footer>
 
 <script>
 "use strict";
 
-/* BASIS */
-
 const $=id=>document.getElementById(id);
-const uid=()=>crypto.randomUUID?crypto.randomUUID():
-Date.now()+"-"+Math.random().toString(36).slice(2);
-const norm=s=>String(s||"").trim().toLowerCase();
+const uid=()=>crypto.randomUUID();
+const norm=s=>String(s||"").trim().toLocaleLowerCase("nl-NL")
+.replace(/\s+/g," ");
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({
 "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
 }[c]));
-const number=v=>Number(v)||0;
-const euro=v=>new Intl.NumberFormat("nl-NL",{
+const num=v=>Number(v)||0;
+const fmt=n=>new Intl.NumberFormat("nl-NL",{maximumFractionDigits:2}).format(num(n));
+const euro=n=>new Intl.NumberFormat("nl-NL",{
 style:"currency",currency:"EUR"
-}).format(number(v));
+}).format(num(n));
 const today=()=>new Date().toLocaleDateString("en-CA");
+const dateNL=d=>{
+if(!d)return "Geen datum";
+const x=new Date(d+"T12:00:00");
+return isNaN(x)?d:new Intl.DateTimeFormat("nl-NL",{
+day:"numeric",month:"long",year:"numeric"
+}).format(x);
+};
+const dayNL=d=>{
+if(!d)return "";
+const x=new Date(d+"T12:00:00");
+return new Intl.DateTimeFormat("nl-NL",{
+weekday:"long",day:"numeric",month:"long",year:"numeric"
+}).format(x);
+};
+const clone=x=>structuredClone(x);
 
 function addDays(date,days){
 const d=new Date(date+"T12:00:00");
 d.setDate(d.getDate()+days);
 return d.toLocaleDateString("en-CA");
 }
-
 function weekStart(date){
 const d=new Date(date+"T12:00:00");
 return addDays(date,-((d.getDay()+6)%7));
 }
-
-function monthLater(date){
+function nextMonth(date){
 const d=new Date(date+"T12:00:00");
 const day=d.getDate();
 d.setDate(1);
@@ -427,7 +476,7 @@ if(d.getMonth()!==month)d.setDate(0);
 return d.toLocaleDateString("en-CA");
 }
 
-const storesSeed=[
+const storeSeeds=[
 ["Albert Heijn","NL","https://www.ah.nl/bonus"],
 ["Lidl","NL","https://www.lidl.nl/"],
 ["Aldi","NL","https://www.aldi.nl/"],
@@ -440,51 +489,36 @@ const storesSeed=[
 ["Gall & Gall","NL","https://www.gall.nl/"],
 ["Etos","NL","https://www.etos.nl/"],
 ["HEMA","NL","https://www.hema.nl/"],
-["Kaufland","DE",""],
-["REWE","DE",""],
-["EDEKA","DE",""],
-["Netto","DE",""],
-["Penny","DE",""],
-["Lidl Duitsland","DE",""],
-["Aldi Duitsland","DE",""],
-["dm","DE",""],
+["Trekpleister","NL","https://www.trekpleister.nl/"],
+["Kaufland","DE",""],["REWE","DE",""],
+["EDEKA","DE",""],["Netto","DE",""],
+["Penny","DE",""],["Lidl Duitsland","DE",""],
+["Aldi Duitsland","DE",""],["dm","DE",""],
 ["Rossmann","DE",""]
 ];
-
-const locations=[
-"Vriezer","Koelkast","Droge voorraad",
-"Keuken","Huishouden","Verzorging","Overig"
+const defaultLocations=[
+"Koelkast","Vriezer","Voorraadkast","Keukenkast",
+"Bijkeuken / berging","Badkamer","Schoonmaakkast","Overige"
 ];
 
-function freshState(){
+function fresh(){
 return{
-version:2,
-products:[],
-batches:[],
-recipes:[],
-meals:[],
-shopping:[],
-receipts:[],
-tasks:[],
-projects:[],
-movements:[],
-stores:storesSeed.map(([name,country,url])=>({
+version:3,products:[],batches:[],recipes:[],
+meals:[],shopping:[],receipts:[],tasks:[],
+projects:[],movements:[],overviews:[],
+purchaseArchive:[],
+stores:storeSeeds.map(([name,country,url])=>({
 id:uid(),name,country,url,enabled:country==="NL"
 })),
-locations:[...locations],
+locations:[...defaultLocations],
 settings:{weeklyBudget:150,monthlyBudget:600}
 };
 }
 
-let state=freshState();
-let db;
-let currentTab="home";
-let recipeMode="all";
-let stockMode="all";
-let logs=[];
-let busy=false;
+let state=fresh(),db,busy=false,logs=[];
+let currentTab="home",recipeMode="all",stockMode="all";
 
-/* DATABASE: GEGEVENS, FOTO'S EN GESCHIEDENIS APART */
+/* DATABASE */
 
 function openDB(){
 return new Promise((resolve,reject)=>{
@@ -493,403 +527,303 @@ req.onupgradeneeded=()=>{
 const d=req.result;
 if(!d.objectStoreNames.contains("app"))d.createObjectStore("app");
 if(!d.objectStoreNames.contains("photos"))d.createObjectStore("photos");
-if(!d.objectStoreNames.contains("history"))d.createObjectStore("history",{keyPath:"id"});
+if(!d.objectStoreNames.contains("history"))
+d.createObjectStore("history",{keyPath:"id"});
 };
 req.onsuccess=()=>resolve(req.result);
 req.onerror=()=>reject(req.error);
 });
 }
-
-function readStore(store,key){
+function get(store,key){
 return new Promise((resolve,reject)=>{
-const tx=db.transaction(store,"readonly");
-const req=tx.objectStore(store).get(key);
+const req=db.transaction(store,"readonly").objectStore(store).get(key);
 req.onsuccess=()=>resolve(req.result);
 req.onerror=()=>reject(req.error);
 });
 }
-
-function allStore(store){
+function getAll(store){
 return new Promise((resolve,reject)=>{
-const tx=db.transaction(store,"readonly");
-const req=tx.objectStore(store).getAll();
+const req=db.transaction(store,"readonly").objectStore(store).getAll();
 req.onsuccess=()=>resolve(req.result);
 req.onerror=()=>reject(req.error);
 });
 }
-
-function transactionWrite(stores,fn){
+function getKeys(store){
+return new Promise((resolve,reject)=>{
+const req=db.transaction(store,"readonly").objectStore(store).getAllKeys();
+req.onsuccess=()=>resolve(req.result);
+req.onerror=()=>reject(req.error);
+});
+}
+function write(stores,fn){
 return new Promise((resolve,reject)=>{
 const tx=db.transaction(stores,"readwrite");
-fn(tx);
+try{fn(tx)}catch(e){tx.abort();reject(e);return}
 tx.oncomplete=resolve;
 tx.onerror=()=>reject(tx.error);
-tx.onabort=()=>reject(tx.error||Error("Opslaan afgebroken"));
+tx.onabort=()=>reject(tx.error||Error("Transactie afgebroken"));
 });
 }
-
-function clone(x){return structuredClone(x);}
-
 async function mutate(label,fn,photoOps=[]){
-if(busy)return alert("Wacht tot de vorige wijziging is opgeslagen.");
+if(busy)return alert("Wacht tot opslaan klaar is.");
 busy=true;
-const before=clone(state);
-const after=clone(state);
-
 try{
+const before=clone(state),after=clone(state);
 fn(after);
-
-const entry={
-id:uid(),
-date:new Date().toISOString(),
-label,
-before
-};
-
-await transactionWrite(["app","history","photos"],tx=>{
+const entry={id:uid(),date:new Date().toISOString(),label,before};
+await write(["app","history","photos"],tx=>{
 tx.objectStore("app").put(after,"state");
 tx.objectStore("history").put(entry);
-
 for(const op of photoOps){
-const store=tx.objectStore("photos");
-if(op.type==="put")store.put(op.data,op.id);
-if(op.type==="delete")store.delete(op.id);
+if(op.type==="put")tx.objectStore("photos").put(op.data,op.id);
+if(op.type==="delete")tx.objectStore("photos").delete(op.id);
 }
 });
-
 state=after;
 logs.push({id:entry.id,date:entry.date,label});
 render();
 $("status").textContent="✓ Opgeslagen";
+return true;
 }catch(e){
 console.error(e);
-alert("Opslaan mislukt. Je vorige gegevens zijn behouden.");
-}finally{
-busy=false;
+alert("Opslaan mislukt. De vorige gegevens zijn behouden.");
+return false;
+}finally{busy=false}
 }
-}
-
 async function undo(){
-if(busy)return;
-const entries=(await allStore("history"))
+const entries=(await getAll("history"))
 .sort((a,b)=>b.date.localeCompare(a.date));
-
-if(!entries.length)return alert("Geen wijziging om te herstellen.");
-
 const last=entries[0];
-if(!confirm("Herstel: "+last.label+"?"))return;
-
+if(!last)return alert("Geen wijziging beschikbaar.");
+if(!confirm("Herstel de vorige wijziging: "+last.label+"?"))return;
 await mutate("Herstel: "+last.label,s=>{
 Object.keys(s).forEach(k=>delete s[k]);
 Object.assign(s,clone(last.before));
 });
 }
-
 async function storageCheck(){
-const count=(await allStore("photos")).length;
+const count=(await getKeys("photos")).length;
 const estimate=await navigator.storage?.estimate?.();
-const used=estimate?.usage?
-(estimate.usage/1024/1024).toFixed(1)+" MB":"Onbekend";
-
 $("storageInfo").textContent=
-"Database bereikbaar · "+count+
-" foto's · Gebruikte browseropslag: "+used+
+count+" foto's opgeslagen. Browseropslag: "+
+(estimate?.usage?(estimate.usage/1048576).toFixed(1)+" MB":"onbekend")+
 ". Maak regelmatig een back-up.";
 }
 
-/* FOTO'S APART BEWAREN */
+/* FOTO'S */
 
-async function photoBlob(input){
+async function compressPhoto(input){
 const file=input.files?.[0];
 if(!file)return null;
-
 return new Promise((resolve,reject)=>{
-const img=new Image();
-const url=URL.createObjectURL(file);
-
+const img=new Image(),url=URL.createObjectURL(file);
 img.onload=()=>{
 const canvas=document.createElement("canvas");
-const factor=Math.min(1,1100/Math.max(img.width,img.height));
-canvas.width=Math.max(1,Math.round(img.width*factor));
-canvas.height=Math.max(1,Math.round(img.height*factor));
+const f=Math.min(1,1100/Math.max(img.width,img.height));
+canvas.width=Math.round(img.width*f);
+canvas.height=Math.round(img.height*f);
 canvas.getContext("2d").drawImage(img,0,0,canvas.width,canvas.height);
 URL.revokeObjectURL(url);
-canvas.toBlob(blob=>blob?resolve(blob):reject(Error("Foto mislukt")),
-"image/jpeg",0.7);
+canvas.toBlob(b=>b?resolve(b):reject(Error("Foto mislukt")),"image/jpeg",.7);
 };
-
-img.onerror=()=>{
-URL.revokeObjectURL(url);
-reject(Error("Foto niet leesbaar"));
-};
+img.onerror=()=>{URL.revokeObjectURL(url);reject(Error("Foto onleesbaar"))};
 img.src=url;
 });
 }
-
-async function photoURL(id){
-if(!id)return "";
-const blob=await readStore("photos",id);
-if(!blob)return "";
-if(typeof blob==="string")return blob;
-return URL.createObjectURL(blob);
+async function showPhoto(elementId,photoId){
+if(!photoId||!$(elementId))return;
+const data=await get("photos",photoId);
+if(!data)return;
+const src=typeof data==="string"?data:URL.createObjectURL(data);
+$(elementId).src=src;
 }
 
-async function attachPhoto(container,id){
-if(!id)return;
-const el=$(container);
-if(!el)return;
-const src=await photoURL(id);
-if(src)el.src=src;
+/* PRODUCTEN */
+
+function product(s,id){return s.products.find(x=>x.id===id)}
+function byName(s,name){
+return s.products.find(x=>norm(x.name)===norm(name));
 }
-
-/* PRODUCTEN EN EENHEDEN */
-
-function family(u){
-if(["g","kg"].includes(u))return "weight";
-if(["ml","l"].includes(u))return "volume";
-return "count";
-}
-
-function base(q,u){
-return number(q)*(["kg","l"].includes(u)?1000:1);
-}
-
-function convert(q,from,to){
-if(family(from)!==family(to))return null;
-return base(q,from)/(["kg","l"].includes(to)?1000:1);
-}
-
-function productByName(s,name){
-return s.products.find(p=>norm(p.name)===norm(name));
-}
-
-function getProduct(s,id){
-return s.products.find(p=>p.id===id);
-}
-
 function ensureProduct(s,name,unit="st"){
-let p=productByName(s,name);
+let p=byName(s,name);
 if(!p){
-p={id:uid(),name:name.trim(),unit,min:0,
-favorite:false,barcode:"",category:"Overig"};
+p={id:uid(),name:name.trim(),unit,
+min:0,target:0,favorite:false,category:"Overig"};
 s.products.push(p);
 }
 return p;
 }
-
-function totalStock(s,pid,unit){
-return s.batches.filter(b=>b.productId===pid)
-.reduce((sum,b)=>sum+(convert(b.qty,b.unit,unit)||0),0);
+function family(u){
+return ["g","kg"].includes(u)?"weight":
+["ml","l"].includes(u)?"volume":"count";
 }
-
-function incompatibleStock(s,pid,unit){
-return s.batches.some(b=>b.productId===pid&&
-family(b.unit)!==family(unit));
+function base(q,u){return num(q)*(["kg","l"].includes(u)?1000:1)}
+function convert(q,from,to){
+if(family(from)!==family(to))return null;
+return base(q,from)/(["kg","l"].includes(to)?1000:1);
 }
-
-function stockState(s,p){
-const total=totalStock(s,p.id,p.unit);
-if(total<=0)return "Op";
-if(p.min>0&&total<=p.min)return "Bijna op";
-return "Op voorraad";
+function packsFor(s,id){
+return s.batches.filter(x=>x.productId===id)
+.reduce((n,b)=>n+num(b.packs??1),0);
 }
-
-function addBatch(s,pid,qty,unit,location,expiry="",status="sealed",opened="",frozen="",photoId=""){
-const b={
-id:uid(),productId:pid,qty,unit,location,
-expiry,status,opened,frozen,photoId
-};
-s.batches.push(b);
-s.movements.push({
-id:uid(),date:new Date().toISOString(),
-type:"add",productId:pid,qty,unit,batchId:b.id
-});
-return b;
+function batchesFor(s,id){
+return s.batches.filter(x=>x.productId===id);
 }
-
-function consume(s,pid,qty,unit){
-let remaining=base(qty,unit);
-
-const batches=s.batches.filter(b=>
-b.productId===pid&&family(b.unit)===family(unit)
-).sort((a,b)=>
-(a.expiry||"9999-12-31").localeCompare(b.expiry||"9999-12-31")
-);
-
-const available=batches.reduce((sum,b)=>sum+base(b.qty,b.unit),0);
-if(available+0.000001<remaining)return false;
-
+function targetFor(p){return num(p.target??p.min)}
+function stockLabel(s,p){
+const batches=batchesFor(s,p.id);
+const packs=packsFor(s,p.id);
+if(!batches.length)return "0 verpakkingen";
+const types=new Map();
 for(const b of batches){
-if(remaining<=0)break;
-const taken=Math.min(base(b.qty,b.unit),remaining);
-b.qty-=taken/(["kg","l"].includes(b.unit)?1000:1);
-remaining-=taken;
+const key=fmt(b.qty)+" "+b.unit;
+types.set(key,(types.get(key)||0)+num(b.packs??1));
 }
-
-s.batches=s.batches.filter(b=>b.qty>0.000001);
+return [...types].map(([size,n])=>`${fmt(n)} × ${size}`).join(" · ");
+}
+function stockStatus(s,p){
+const n=packsFor(s,p.id),target=targetFor(p);
+return target>0&&n<target?"Aanvullen":n>0?"Op voorraad":"Op";
+}
+function stockShortage(s,p){
+return Math.max(0,targetFor(p)-packsFor(s,p.id));
+}
+function nameOf(id){return product(state,id)?.name||"Onbekend"}
+function storeName(id){return state.stores.find(x=>x.id===id)?.name||"Geen winkel"}
+function addBatch(s,pid,packs,qty,unit,location,expiry="",photoId=""){
+if(packs<=0)return;
+s.batches.push({
+id:uid(),productId:pid,packs,qty,unit,location,
+expiry,photoId
+});
 s.movements.push({
 id:uid(),date:new Date().toISOString(),
-type:"consume",productId:pid,qty,unit
+type:"add",productId:pid,packs,qty,unit
 });
-return true;
 }
-
-function addShoppingLine(s,name,qty,unit,source="handmatig",storeId="",estimated=0){
-const p=ensureProduct(s,name,unit);
-const existing=s.shopping.find(x=>
-!x.done&&x.productId===p.id&&x.unit===unit&&
-x.storeId===storeId&&x.source===source
-);
-
-if(existing){
-existing.qty=Math.max(existing.qty,qty);
-return existing;
+function addShopping(s,name,packs,source="handmatig",storeId="",price=0,projectId=""){
+const p=ensureProduct(s,name);
+let q=s.shopping.find(x=>!x.done&&x.productId===p.id&&
+(x.storeId===storeId||!x.storeId||!storeId));
+if(q){
+q.packs=Math.max(num(q.packs),packs);
+if(storeId)q.storeId=storeId;
+return q;
 }
-
-const item={
-id:uid(),productId:p.id,qty,unit,storeId,
-estimated:number(estimated),done:false,stocked:false,
-source,created:today(),purchaseId:""
+q={
+id:uid(),productId:p.id,packs,storeId,
+estimated:num(price),done:false,stocked:false,
+source,projectId,created:today()
 };
-s.shopping.push(item);
-return item;
+s.shopping.push(q);
+return q;
+}
+function desiredShopping(s,p,amount){
+let q=s.shopping.find(x=>!x.done&&x.productId===p.id);
+if(amount<=0)return;
+if(q)q.packs=Math.max(num(q.packs),amount);
+else addShopping(s,p.name,amount,"aanvullen");
 }
 
-function nameOf(id){
-return getProduct(state,id)?.name||"Onbekend";
+/* MIGRATIE 1.0 NAAR 1.1 */
+
+function migrate(old){
+const s=fresh();
+s.settings={...s.settings,...(old.settings||{})};
+s.locations=[...new Set([...defaultLocations,...(old.locations||[])])];
+if(Array.isArray(old.stores)&&old.stores.length){
+const existing=new Map(old.stores.map(x=>[norm(x.name),x]));
+s.stores=s.stores.map(x=>existing.get(norm(x.name))||x);
 }
-
-function storeName(id){
-return state.stores.find(s=>s.id===id)?.name||"Geen winkel";
+s.products=(old.products||[]).map(p=>({
+...p,target:num(p.target??p.min),
+unit:p.unit||"st"
+}));
+s.batches=(old.batches||[]).map(b=>({
+...b,packs:num(b.packs??1),
+qty:num(b.qty)||1,unit:b.unit||"st"
+}));
+for(const p of s.products){
+const bs=batchesFor(s,p.id);
+if(bs.length){
+const first=bs[0];
+p.unit=first.unit;
 }
-
-/* MIGRATIE */
-
-function migrateLegacy(old){
-const s=freshState();
-
-for(const r of old.recipes||[]){
-s.recipes.push({
-id:uid(),name:r.name||"Recept",
+}
+for(const x of old.stock||[]){
+const unit={gram:"g",liter:"l",stuks:"st"}[x.unit]||x.unit||"st";
+const p=ensureProduct(s,x.name||"Product",unit);
+addBatch(s,p.id,Math.max(0,num(x.amount??x.qty)),1,unit,x.category||"Overige");
+}
+s.recipes=(old.recipes||[]).map(r=>({
+...r,id:r.id||uid(),
 type:r.type||"Avondeten",
-servings:number(r.servings)||4,
+servings:num(r.servings)||4,
 favorite:!!r.favorite,
 ingredients:(r.ingredients||[]).map(i=>
-typeof i==="string"?
-{name:i,qty:0,unit:"st",estimated:true}:
-{...i,estimated:!!i.estimated}
-),
-steps:r.steps||[]
-});
+typeof i==="string"?parseIngredient(i):
+{...i,estimated:!!i.estimated}),
+steps:Array.isArray(r.steps)?r.steps:
+String(r.steps||"").split("\n").filter(Boolean)
+}));
+s.meals=old.meals||[];
+s.shopping=(old.shopping||[]).map(q=>({
+...q,packs:Math.max(1,Math.round(num(q.packs??q.qty)||1)),
+done:!!q.done,stocked:!!(q.stocked||q.inStock)
+}));
+for(const q of s.shopping){
+if(!q.productId){
+q.productId=ensureProduct(s,q.name||"Product").id;
 }
-
-for(const oldBatch of old.batches||[]){
-const b={...oldBatch};
-let photoId=b.photoId||"";
-if(b.photo&&!photoId)photoId="";
-delete b.photo;
-s.batches.push({
-...b,photoId,
-opened:b.opened||"",
-frozen:b.frozen||"",
-status:b.status||"sealed"
-});
 }
-
-for(const p of old.products||[])s.products.push({...p});
-
-for(const item of old.stock||[]){
-const p=ensureProduct(s,item.name||"Product",
-item.unit==="kg"?"kg":item.unit==="gram"?"g":"st");
-
-let qty=Number(item.amount??item.qty);
-if(!Number.isFinite(qty)||qty<0)qty=0;
-
-const unit={
-gram:"g",liter:"l",stuks:"st",pakken:"st",
-flessen:"st",potten:"st",zakken:"st"
-}[item.unit]||item.unit||"st";
-
-addBatch(s,p.id,qty,unit,item.category||"Overig");
-}
-
-for(const q of old.shopping||[]){
-const p=ensureProduct(s,q.name||"Product",q.unit||"st");
-s.shopping.push({
-id:uid(),productId:q.productId||p.id,
-qty:number(q.qty)||1,
-unit:q.unit||"st",
-storeId:q.storeId||"",
-estimated:number(q.estimated),
-done:!!q.done,stocked:!!q.stocked||!!q.inStock,
-source:q.source||"legacy",
-created:q.created||today(),
-purchaseId:q.purchaseId||""
-});
-}
-
-for(const m of old.meals||[])s.meals.push({...m});
-for(const r of old.receipts||[])s.receipts.push({...r});
-for(const t of old.tasks||[])s.tasks.push({...t});
-for(const p of old.projects||[])s.projects.push({...p});
-for(const m of old.movements||[])s.movements.push({...m});
-
-if(old.stores?.length)s.stores=old.stores;
-if(old.locations?.length)s.locations=old.locations;
-if(old.settings)s.settings={...s.settings,...old.settings};
-
+s.receipts=old.receipts||[];
+s.tasks=old.tasks||[];
+s.projects=(old.projects||[]).map(p=>({
+...p,items:(p.items||[]).map(i=>
+typeof i==="string"?{id:uid(),name:i,done:false}:
+{...i,id:i.id||uid()})
+}));
+s.movements=old.movements||[];
+s.overviews=old.overviews||[];
+s.purchaseArchive=old.purchaseArchive||[];
 return s;
 }
 
-/* NAVIGATIE EN SCHERMEN */
+/* NAVIGATIE */
 
 function tab(id){
 currentTab=id;
-document.querySelectorAll("section").forEach(el=>{
-el.classList.toggle("active",el.id===id);
-});
-document.querySelectorAll("nav button").forEach(b=>{
-b.classList.toggle("active",b.dataset.tab===id);
-});
+document.querySelectorAll("section").forEach(x=>
+x.classList.toggle("active",x.id===id));
+document.querySelectorAll("nav button").forEach(x=>
+x.classList.toggle("active",x.dataset.tab===id));
 render();
 }
+document.querySelectorAll("nav button").forEach(b=>
+b.onclick=()=>tab(b.dataset.tab));
 
-document.querySelectorAll("nav button").forEach(b=>{
-b.onclick=()=>tab(b.dataset.tab);
-});
-
-function fillOptions(id,items){
-const el=$(id);
-const old=el.value;
+function options(id,items){
+const el=$(id),old=el.value;
 el.innerHTML=items.map(x=>
 `<option value="${esc(x.value)}">${esc(x.label)}</option>`
 ).join("");
 if(items.some(x=>x.value===old))el.value=old;
 }
-
 function fillSelects(){
 const stores=[
-{value:"",label:"Geen winkel"},
+{value:"",label:"Geen vaste winkel"},
 ...state.stores.filter(x=>x.enabled)
 .map(x=>({value:x.id,label:x.name}))
 ];
-
-["qStore","receiptStore","shopModeStore"].forEach(id=>
-fillOptions(id,stores)
-);
-
+["qStore","receiptStore","shopModeStore"].forEach(id=>options(id,stores));
 const loc=state.locations.map(x=>({value:x,label:x}));
-["sLocation","bulkLocation"].forEach(id=>fillOptions(id,loc));
-
-fillOptions("stockLocationFilter",[
+options("sLocation",loc);
+options("bulkLocation",loc);
+options("stockLocationFilter",[
 {value:"",label:"Alle locaties"},...loc
 ]);
-
-fillOptions("mealRecipe",state.recipes.map(r=>({
-value:r.id,label:r.name
-})));
+options("mealRecipe",state.recipes.map(r=>({value:r.id,label:r.name})));
 }
-
 function render(){
 fillSelects();
 renderDashboard();
@@ -902,120 +836,298 @@ renderPlanning();
 renderMore();
 renderHistory();
 }
-
 function renderDashboard(){
 const now=today();
 const pending=state.shopping.filter(x=>!x.done).length;
-const low=state.products.filter(p=>
-state.batches.some(b=>b.productId===p.id)&&
-stockState(state,p)!=="Op voorraad"
-).length;
-const expiry=state.batches.filter(b=>
-b.expiry&&b.expiry<=addDays(now,7)).length;
+const low=state.products.filter(p=>stockShortage(state,p)>0).length;
+const expiry=state.batches.filter(b=>b.expiry&&b.expiry<=addDays(now,7)).length;
 const tasks=state.tasks.filter(t=>!t.done&&t.date<=now).length;
-
 $("dashboard").innerHTML=`
 <div class="grid">
 <div class="stat">🛒 Nog kopen<strong>${pending}</strong></div>
-<div class="stat">📦 Bijna op<strong>${low}</strong></div>
+<div class="stat">📦 Aanvullen<strong>${low}</strong></div>
 <div class="stat">⏳ Houdbaarheid<strong>${expiry}</strong></div>
 <div class="stat">📋 Taken<strong>${tasks}</strong></div>
 </div>
-<div class="card">
-<h3>🍽️ Vandaag</h3>
+<div class="card"><h3>🍽️ Vandaag</h3>
 ${state.meals.filter(m=>m.date===now).map(m=>`
 <p>${esc(m.type)}: <b>${esc(state.recipes.find(r=>r.id===m.recipeId)?.name||"Recept")}</b></p>
 `).join("")||"<p class='muted'>Nog niets gepland.</p>"}
-<button class="secondary" onclick="tab('menu')">Weekmenu</button>
 </div>
-<div class="card">
-<h3>🔔 Aandacht nodig</h3>
-${state.batches.filter(b=>b.expiry&&b.expiry<=addDays(now,7))
-.slice(0,8).map(b=>`
-<p>⏳ ${esc(nameOf(b.productId))} · ${esc(b.expiry)}</p>
-`).join("")}
-${state.products.filter(p=>stockState(state,p)==="Bijna op")
-.slice(0,8).map(p=>`<p>📦 ${esc(p.name)} · Bijna op</p>`).join("")}
+<div class="card"><h3>📦 Voorraadcheck</h3>
+<p class="muted">Je hoeft je voorraad pas vóór de volgende boodschappenronde te controleren.</p>
+<button onclick="tab('stock');reviewStock()">Voorraad controleren</button>
 </div>`;
 }
 
-/* RECEPTEN */
+/* VOORRAAD */
 
-function parseIngredient(line){
-const m=line.trim().match(
-/^([\d.,]+)\s*(kg|g|gram|ml|l|liter|stuks|stuk|st)\s+(.+)$/i
-);
-if(!m)return{
-name:line.trim(),qty:0,unit:"st",estimated:true
+function selectedPacks(){
+const v=$("sPacks").value;
+return Number(v==="other"?$("sPacksOther").value:v);
+}
+function resetStockForm(){
+["stockEdit","sName","sExpiry","sPhoto","sLocationOther"].forEach(id=>$(id).value="");
+$("sPacks").value="1";
+$("sPacksOther").hidden=true;
+$("sQty").value=1;
+$("sTarget").value=0;
+}
+function setPackSelect(n){
+const v=String(n);
+if([...$("sPacks").options].some(x=>x.value===v)){
+$("sPacks").value=v;
+$("sPacksOther").hidden=true;
+}else{
+$("sPacks").value="other";
+$("sPacksOther").hidden=false;
+$("sPacksOther").value=n;
+}
+}
+$("sPacks").onchange=()=>{
+$("sPacksOther").hidden=$("sPacks").value!=="other";
 };
-const u=m[2].toLowerCase();
+$("sLocation").onchange=()=>{
+$("sLocationOther").hidden=$("sLocation").value!=="Overige";
+};
+
+function editStock(id){
+const p=product(state,id),bs=batchesFor(state,id);
+if(!p)return;
+tab("stock");
+$("stockEdit").value=id;
+$("sName").value=p.name;
+setPackSelect(packsFor(state,id));
+$("sQty").value=bs[0]?.qty||1;
+$("sUnit").value=bs[0]?.unit||p.unit;
+$("sLocation").value=bs[0]?.location||"Voorraadkast";
+$("sExpiry").value=bs.map(x=>x.expiry).filter(Boolean).sort()[0]||"";
+$("sTarget").value=targetFor(p);
+$("stockForm").scrollIntoView({behavior:"smooth"});
+}
+async function saveStock(){
+const name=$("sName").value.trim();
+const packs=selectedPacks(),qty=Number($("sQty").value);
+if(!name||!Number.isInteger(packs)||packs<0||
+!Number.isFinite(qty)||qty<=0)
+return alert("Controleer het aantal verpakkingen en de inhoud.");
+let location=$("sLocation").value;
+if(location==="Overige"&&$("sLocationOther").value.trim())
+location=$("sLocationOther").value.trim();
+const blob=await compressPhoto($("sPhoto"));
+const photoId=blob?uid():"";
+const id=$("stockEdit").value;
+const ok=await mutate("Voorraad bewaren",s=>{
+let p=id?product(s,id):ensureProduct(s,name,$("sUnit").value);
+if(!p)throw Error("Product niet gevonden");
+if(s.products.some(x=>x.id!==p.id&&norm(x.name)===norm(name)))
+throw Error("Productnaam bestaat al");
+p.name=name;p.unit=$("sUnit").value;
+p.target=num($("sTarget").value);
+p.min=p.target;
+if(!s.locations.includes(location))s.locations.push(location);
+if(id)s.batches=s.batches.filter(x=>x.productId!==id);
+addBatch(s,p.id,packs,qty,$("sUnit").value,
+location,$("sExpiry").value,photoId);
+},blob?[{type:"put",id:photoId,data:blob}]:[]);
+if(ok)resetStockForm();
+}
+async function quickCount(id){
+const p=product(state,id);
+const answer=prompt(
+"Hoeveel verpakkingen "+p.name+" heb je nog?",
+packsFor(state,id)
+);
+if(answer===null)return;
+const n=Number(answer);
+if(!Number.isInteger(n)||n<0)return alert("Vul een heel aantal in.");
+await mutate("Voorraadcheck: "+p.name,s=>{
+const bs=batchesFor(s,id);
+const first=bs[0]||{
+qty:1,unit:p.unit,location:"Voorraadkast",expiry:""
+};
+s.batches=s.batches.filter(x=>x.productId!==id);
+addBatch(s,id,n,first.qty,first.unit,first.location,first.expiry);
+});
+}
+async function refill(id){
+const p=product(state,id),short=stockShortage(state,p);
+if(short<=0)return alert("Voldoende voorraad. Niets kopen.");
+await mutate("Aanvuladvies: "+p.name,s=>{
+desiredShopping(s,product(s,id),short);
+});
+$("status").textContent="✓ Toegevoegd aan boodschappen";
+}
+async function favoriteProduct(id){
+await mutate("Productfavoriet",s=>{
+product(s,id).favorite=!product(s,id).favorite;
+});
+}
+async function deleteProduct(id){
+if(!confirm("Product en voorraad verwijderen?"))return;
+await mutate("Product verwijderen",s=>{
+s.batches=s.batches.filter(x=>x.productId!==id);
+s.products=s.products.filter(x=>x.id!==id);
+});
+}
+function reviewStock(){
+stockMode="all";
+renderStock();
+$("stockList").scrollIntoView({behavior:"smooth"});
+}
+function renderStock(){
+const search=norm($("stockSearch").value);
+const location=$("stockLocationFilter").value;
+let list=state.products.filter(p=>norm(p.name).includes(search));
+if(stockMode==="low")list=list.filter(p=>stockShortage(state,p)>0);
+if(stockMode==="expiry")list=list.filter(p=>
+batchesFor(state,p.id).some(b=>b.expiry&&b.expiry<=addDays(today(),7))
+);
+$("stockList").innerHTML=list.map(p=>{
+const bs=batchesFor(state,p.id);
+if(location&&!bs.some(x=>x.location===location))return "";
+const dates=bs.map(x=>x.expiry).filter(Boolean).sort();
+const n=packsFor(state,p.id);
+return`
+<div class="card">
+<div class="row">
+<h3 class="grow">${esc(p.name)}</h3>
+<button class="secondary small" onclick="favoriteProduct('${p.id}')">${p.favorite?"❤️":"♡"}</button>
+</div>
+<p><b>${esc(stockLabel(state,p))}</b></p>
+<p class="muted">${esc(bs[0]?.location||"Geen locatie")}
+${dates.length?" · Houdbaar tot "+dateNL(dates[0]):""}</p>
+${stockShortage(state,p)>0?
+`<p class="pill">Advies: koop ${fmt(stockShortage(state,p))} verpakking(en)</p>`:
+`<p class="pill">${n>0?"Op voorraad":"Geen voorraad"}</p>`}
+<p class="muted">Gewenst: ${fmt(targetFor(p))} verpakkingen</p>
+<div class="row">
+<button onclick="quickCount('${p.id}')">Aantal aanpassen</button>
+<button class="secondary" onclick="editStock('${p.id}')">Bewerk</button>
+${stockShortage(state,p)>0?
+`<button class="secondary" onclick="refill('${p.id}')">Aanvullen</button>`:""}
+<button class="danger small" onclick="deleteProduct('${p.id}')">×</button>
+</div>
+</div>`;
+}).join("")||"<div class='card'>Geen producten gevonden.</div>";
+$("overviewList").innerHTML=(state.overviews||[]).map(x=>`
+<div class="item">
+<img class="photo" id="overview-${x.id}">
+<span class="grow">${esc(x.label)}</span>
+<button class="danger small" onclick="removeOverview('${x.id}')">×</button>
+</div>`).join("");
+(state.overviews||[]).forEach(x=>showPhoto("overview-"+x.id,x.id));
+}
+function parseBulk(line){
+const text=line.trim();
+let m=text.match(/^(\d+)\s*[x×]\s*([\d.,]+)\s*(liter|l|ml|kg|gram|gr|g|stuks?)\s+(.+)$/i);
+if(m)return{
+name:m[4],packs:Number(m[1]),qty:Number(m[2].replace(",",".")),
+unit:unitOf(m[3])
+};
+m=text.match(/^(\d+)\s+(pakken?|flessen?|zakken?|potten?|stuks?)\s+(.+)$/i);
+if(m)return{name:m[3],packs:Number(m[1]),qty:1,unit:"st"};
+return null;
+}
+function previewBulk(){
+const lines=$("bulkInput").value.split("\n").map(x=>x.trim()).filter(Boolean);
+const parsed=lines.map(parseBulk);
+$("bulkPreview").innerHTML=lines.map((x,i)=>
+`<p>${parsed[i]?"✓":"⚠️"} ${esc(x)}</p>`
+).join("")+
+(parsed.length&&parsed.every(Boolean)?
+`<button onclick="saveBulk()">Alles bewaren</button>`:"");
+}
+async function saveBulk(){
+const lines=$("bulkInput").value.split("\n").map(x=>x.trim()).filter(Boolean);
+const items=lines.map(parseBulk);
+if(!items.length||items.some(x=>!x))return alert("Controleer eerst de invoer.");
+await mutate("Bulkvoorraad",s=>{
+items.forEach(i=>{
+const p=ensureProduct(s,i.name,i.unit);
+addBatch(s,p.id,i.packs,i.qty,i.unit,$("bulkLocation").value);
+});
+});
+$("bulkInput").value="";
+$("bulkPreview").innerHTML="";
+}
+async function saveOverview(){
+const blob=await compressPhoto($("overviewPhoto"));
+if(!blob)return alert("Kies een foto.");
+const label=prompt("Naam foto","Voorraadkast");
+if(label===null)return;
+const id=uid();
+await mutate("Voorraadfoto",s=>{
+s.overviews.push({id,label,date:today()});
+},[{type:"put",id,data:blob}]);
+$("overviewPhoto").value="";
+}
+async function removeOverview(id){
+await mutate("Voorraadfoto verwijderen",s=>{
+s.overviews=s.overviews.filter(x=>x.id!==id);
+},[{type:"delete",id}]);
+}
+async function scanBarcode(){
+const code=prompt("Barcode invoeren (camera-scanner volgt later):");
+if(!code)return;
+try{
+const response=await fetch(
+"https://world.openfoodfacts.org/api/v2/product/"+
+encodeURIComponent(code)+"?fields=product_name"
+);
+const result=await response.json();
+if(result.status===1&&result.product?.product_name)
+$("sName").value=result.product.product_name;
+else alert("Niet gevonden. Vul het product zelf in.");
+}catch(e){alert("Productinformatie niet beschikbaar.");}
+}
+
+/* INGREDIËNTEN */
+
+function unitOf(s){
+const u=norm(s);
+if(["g","gr","gram","grammen"].includes(u))return "g";
+if(["kg","kilo","kilogram"].includes(u))return "kg";
+if(["l","liter"].includes(u))return "l";
+if(["ml","milliliter"].includes(u))return "ml";
+return "st";
+}
+function parseIngredient(line){
+const t=line.trim();
+const m=t.match(/^([\d.,]+)\s*(kg|kilogram|g|gr|gram|grammen|ml|milliliter|l|liter|st|stuk|stuks)?\s+(.+)$/i);
+if(!m)return{name:t,qty:0,unit:"st",estimated:true};
 return{
 name:m[3].trim(),
 qty:Number(m[1].replace(",",".")),
-unit:u==="gram"?"g":u==="liter"?"l":
-["stuk","stuks"].includes(u)?"st":u,
+unit:unitOf(m[2]||"st"),
 estimated:false
 };
 }
-
-function recipeNeeds(recipe,servings=recipe.servings){
-return recipe.ingredients.map(i=>{
-const p=productByName(state,i.name);
-const required=i.qty*servings/recipe.servings;
-const available=p?totalStock(state,p.id,i.unit):0;
-return{
-...i,required,available,
-missing:Math.max(0,required-available),
-uncertain:i.estimated||!!(p&&incompatibleStock(state,p.id,i.unit))
-};
+function ingredientText(i){
+return i.estimated?i.name+" (hoeveelheid onbekend)":
+fmt(i.qty)+" "+i.unit+" "+i.name;
+}
+function recipeNeeds(r,servings=r.servings){
+return r.ingredients.map(i=>{
+const p=byName(state,i.name);
+const required=num(i.qty)*servings/r.servings;
+const available=p?batchesFor(state,p.id).reduce((n,b)=>{
+const v=convert(b.qty,b.unit,i.unit);
+return n+(v===null?0:v*num(b.packs??1));
+},0):0;
+const uncertain=i.estimated||!!(p&&batchesFor(state,p.id)
+.some(b=>family(b.unit)!==family(i.unit)));
+return{...i,required,available,uncertain,
+missing:Math.max(0,required-available)};
 });
 }
 
-function renderRecipes(){
-const search=norm($("recipeSearch").value);
-const filter=$("recipeFilter").value;
-
-let list=state.recipes.filter(r=>
-norm(r.name).includes(search)&&(!filter||r.type===filter)
-);
-
-if(recipeMode==="favorites")list=list.filter(r=>r.favorite);
-if(recipeMode==="possible")list=list.filter(r=>
-recipeNeeds(r).every(x=>!x.uncertain&&x.missing<=0.000001)
-);
-
-$("recipeList").innerHTML=list.map(r=>{
-const needs=recipeNeeds(r);
-return`
-<div class="card">
-<h3>${esc(r.name)}</h3>
-<p class="tag">${esc(r.type)} · ${r.servings} porties</p>
-<p>${r.ingredients.map(i=>i.estimated?
-esc(i.name)+" (hoeveelheid onbekend)":
-`${i.qty} ${esc(i.unit)} ${esc(i.name)}`
-).join(", ")}</p>
-<details><summary>Bereiding & voorraadcheck</summary>
-${r.steps.map((x,i)=>`<p>${i+1}. ${esc(x)}</p>`).join("")}
-${needs.map(x=>`<p>${esc(x.name)}:
-${x.uncertain?"Handmatig controleren":
-"Tekort "+x.missing.toFixed(2)+" "+x.unit}</p>`).join("")}
-</details>
-<div class="row">
-<button onclick="recipeToShopping('${r.id}')">Tekorten kopen</button>
-<button class="secondary" onclick="quickPlan('${r.id}')">Plannen</button>
-<button class="secondary small" onclick="editRecipe('${r.id}')">Bewerk</button>
-<button class="secondary small" onclick="favoriteRecipe('${r.id}')">${r.favorite?"❤️":"♡"}</button>
-<button class="danger small" onclick="deleteRecipe('${r.id}')">×</button>
-</div>
-</div>`;
-}).join("")||"<div class='card'>Geen recepten gevonden.</div>";
-}
+/* RECEPTEN */
 
 function resetRecipe(){
 ["recipeEdit","rName","rIngredients","rSteps"].forEach(id=>$(id).value="");
 $("rServings").value=4;
 }
-
 function editRecipe(id){
 const r=state.recipes.find(x=>x.id===id);
 if(!r)return;
@@ -1027,23 +1139,18 @@ $("rIngredients").value=r.ingredients.map(i=>
 i.estimated?i.name:`${i.qty} ${i.unit} ${i.name}`
 ).join("\n");
 $("rSteps").value=r.steps.join("\n");
-$("rName").scrollIntoView({behavior:"smooth"});
+$("recipeForm").scrollIntoView({behavior:"smooth"});
 }
-
 async function saveRecipe(){
-const name=$("rName").value.trim();
-if(!name)return alert("Vul een naam in.");
-const ingredients=$("rIngredients").value.split("\n")
-.map(x=>x.trim()).filter(Boolean).map(parseIngredient);
-const servings=Number($("rServings").value);
-if(!Number.isFinite(servings)||servings<=0)return alert("Ongeldige porties.");
-
+const name=$("rName").value.trim(),servings=Number($("rServings").value);
+if(!name||servings<=0)return alert("Vul naam en porties in.");
 const id=$("recipeEdit").value;
 await mutate("Recept bewaren",s=>{
 const old=s.recipes.find(x=>x.id===id);
 const value={
-id:id||uid(),name,type:$("rType").value,
-servings,ingredients,
+id:id||uid(),name,type:$("rType").value,servings,
+ingredients:$("rIngredients").value.split("\n")
+.map(x=>x.trim()).filter(Boolean).map(parseIngredient),
 steps:$("rSteps").value.split("\n").map(x=>x.trim()).filter(Boolean),
 favorite:old?.favorite||false
 };
@@ -1052,45 +1159,68 @@ else s.recipes.push(value);
 });
 resetRecipe();
 }
-
 async function favoriteRecipe(id){
 await mutate("Receptfavoriet",s=>{
 const r=s.recipes.find(x=>x.id===id);
-if(r)r.favorite=!r.favorite;
+r.favorite=!r.favorite;
 });
 }
-
 async function deleteRecipe(id){
-if(state.meals.some(m=>m.recipeId===id))
-return alert("Verwijder eerst dit recept uit het weekmenu.");
+if(state.meals.some(x=>x.recipeId===id))
+return alert("Verwijder eerst de geplande maaltijden.");
 if(!confirm("Recept verwijderen?"))return;
 await mutate("Recept verwijderen",s=>{
-s.recipes=s.recipes.filter(r=>r.id!==id);
+s.recipes=s.recipes.filter(x=>x.id!==id);
 });
 }
-
+function renderRecipes(){
+const search=norm($("recipeSearch").value),filter=$("recipeFilter").value;
+let list=state.recipes.filter(r=>norm(r.name).includes(search)&&
+(!filter||r.type===filter));
+if(recipeMode==="favorites")list=list.filter(r=>r.favorite);
+if(recipeMode==="possible")list=list.filter(r=>
+recipeNeeds(r).every(x=>!x.uncertain&&x.missing<=0));
+$("recipeList").innerHTML=list.map(r=>{
+const needs=recipeNeeds(r);
+return`
+<div class="card">
+<h3>${esc(r.name)}</h3>
+<p class="tag">${esc(r.type)} · ${r.servings} porties</p>
+<p>${r.ingredients.map(x=>esc(ingredientText(x))).join(", ")}</p>
+<details><summary>Bereiding & voorraadindicatie</summary>
+${r.steps.map((x,i)=>`<p>${i+1}. ${esc(x)}</p>`).join("")}
+${needs.map(x=>`<p>${esc(x.name)}:
+${x.uncertain?"Handmatig controleren":
+"Geschat tekort "+fmt(x.missing)+" "+x.unit}</p>`).join("")}
+<p class="muted">De voorraadindicatie is gebaseerd op je laatste handmatige voorraadcheck.</p>
+</details>
+<div class="row">
+<button onclick="recipeToShopping('${r.id}')">Tekorten kopen</button>
+<button class="secondary" onclick="quickPlan('${r.id}')">Plannen</button>
+<button class="secondary small" onclick="editRecipe('${r.id}')">Bewerk</button>
+<button class="secondary small" onclick="favoriteRecipe('${r.id}')">${r.favorite?"❤️":"♡"}</button>
+<button class="danger small" onclick="deleteRecipe('${r.id}')">×</button>
+</div>
+</div>`;
+}).join("")||"<div class='card'>Geen recepten gevonden.</div>";
+}
 async function recipeToShopping(id){
 const r=state.recipes.find(x=>x.id===id);
-if(!r)return;
 const needs=recipeNeeds(r);
-if(needs.some(x=>x.uncertain)){
-return alert("Controleer eerst de onzekere ingrediënten en hoeveelheden.");
-}
-await mutate("Recepttekorten toevoegen",s=>{
-needs.filter(x=>x.missing>0.000001).forEach(x=>{
-addShoppingLine(s,x.name,x.missing,x.unit,"recept");
+if(needs.some(x=>x.uncertain))
+return alert("Controleer eerst de ingrediënten met onzekere hoeveelheden.");
+if(!confirm("Geschatte tekorten toevoegen? Controleer zelf hoeveel verpakkingen je nodig hebt."))
+return;
+await mutate("Recepttekorten",s=>{
+needs.filter(x=>x.missing>0).forEach(x=>{
+addShopping(s,x.name,Math.max(1,Math.ceil(x.missing)),"recept");
 });
 });
-tab("shopping");
 }
 
 /* WEEKMENU */
 
-function quickPlan(id){
-tab("menu");
-$("mealRecipe").value=id;
-}
-
+function quickPlan(id){tab("menu");$("mealRecipe").value=id}
 function editMeal(id){
 const m=state.meals.find(x=>x.id===id);
 if(!m)return;
@@ -1100,14 +1230,10 @@ $("mealType").value=m.type;
 $("mealRecipe").value=m.recipeId;
 $("mealServings").value=m.servings;
 }
-
 async function saveMeal(){
-const date=$("mealDate").value;
-const recipeId=$("mealRecipe").value;
+const date=$("mealDate").value,recipeId=$("mealRecipe").value;
 const servings=Number($("mealServings").value);
-if(!date||!recipeId||!Number.isFinite(servings)||servings<=0)
-return alert("Kies een datum, recept en porties.");
-
+if(!date||!recipeId||servings<=0)return alert("Controleer de planning.");
 const id=$("mealEdit").value;
 await mutate("Weekmenu wijzigen",s=>{
 const old=s.meals.find(x=>x.id===id);
@@ -1120,530 +1246,160 @@ else s.meals.push(value);
 });
 $("mealEdit").value="";
 }
-
 async function copyWeek(){
 const start=weekStart($("mealDate").value||today());
 const end=addDays(start,6);
-const list=state.meals.filter(m=>m.date>=start&&m.date<=end);
-if(!list.length)return alert("Geen maaltijden in deze week.");
-
+const list=state.meals.filter(x=>x.date>=start&&x.date<=end);
+if(!list.length)return alert("Geen maaltijden om te kopiëren.");
 await mutate("Weekmenu kopiëren",s=>{
 list.forEach(m=>{
 const date=addDays(m.date,7);
-if(!s.meals.some(x=>x.date===date&&x.type===m.type)){
+if(!s.meals.some(x=>x.date===date&&x.type===m.type))
 s.meals.push({...m,id:uid(),date,cooked:false});
-}
 });
 });
 }
-
-function plannedNeeds(){
-const totals=new Map();
+async function menuToShopping(){
+const names=new Map();
 for(const m of state.meals.filter(x=>!x.cooked)){
 const r=state.recipes.find(x=>x.id===m.recipeId);
 if(!r)continue;
 for(const i of r.ingredients){
-if(i.estimated)return null;
-const p=productByName(state,i.name);
-if(p&&incompatibleStock(state,p.id,i.unit))return null;
-const key=norm(i.name)+"|"+family(i.unit);
-const unit=family(i.unit)==="weight"?"g":
-family(i.unit)==="volume"?"ml":"st";
-const required=base(i.qty*m.servings/r.servings,i.unit);
-const existing=totals.get(key);
-if(existing)existing.required+=required;
-else totals.set(key,{name:i.name,unit,required,pid:p?.id});
+const key=norm(i.name);
+if(!names.has(key))names.set(key,i.name);
 }
 }
-return [...totals.values()].map(x=>{
-const available=x.pid?totalStock(state,x.pid,x.unit):0;
-const listed=state.shopping.filter(q=>
-!q.done&&q.productId===x.pid)
-.reduce((sum,q)=>sum+(convert(q.qty,q.unit,x.unit)||0),0);
-return{...x,missing:Math.max(0,x.required-available-listed)};
+if(!names.size)return alert("Geen ingrediënten gevonden.");
+if(!confirm("Ingrediënten als boodschappenvoorstel toevoegen? Controleer de aantallen zelf."))
+return;
+await mutate("Weekmenu boodschappen",s=>{
+for(const name of names.values()){
+const p=byName(s,name);
+if(!p||packsFor(s,p.id)===0)addShopping(s,name,1,"weekmenu");
+}
 });
 }
-
-async function menuToShopping(){
-const needs=plannedNeeds();
-if(!needs)return alert("Controleer eerst de onzekere ingrediënten of eenheden.");
-await mutate("Weekmenutekorten",s=>{
-needs.filter(x=>x.missing>0.000001).forEach(x=>
-addShoppingLine(s,x.name,x.missing,x.unit,"weekmenu")
-);
-});
-tab("shopping");
-}
-
 async function cookMeal(id){
-const m=state.meals.find(x=>x.id===id);
-if(!m||m.cooked)return;
-const r=state.recipes.find(x=>x.id===m.recipeId);
-if(!r)return;
-
-const needs=recipeNeeds(r,m.servings);
-if(needs.some(x=>x.uncertain||x.missing>0.000001)){
-return alert("Voorraad onvoldoende of hoeveelheden onzeker. Controleer eerst de ingrediënten.");
-}
-if(!confirm("Gerecht bereid? Ingrediënten nu afschrijven?"))return;
-
-await mutate("Gerecht bereid: "+r.name,s=>{
-for(const i of r.ingredients){
-const p=productByName(s,i.name);
-if(!p||!consume(s,p.id,i.qty*m.servings/r.servings,i.unit)){
-throw Error("Voorraad onvoldoende");
-}
-}
-s.meals.find(x=>x.id===id).cooked=true;
+await mutate("Maaltijd bereid",s=>{
+const m=s.meals.find(x=>x.id===id);
+m.cooked=true;
 });
 }
-
 async function deleteMeal(id){
 await mutate("Maaltijd verwijderen",s=>{
 s.meals=s.meals.filter(x=>x.id!==id);
 });
 }
-
 function renderMenu(){
 $("mealList").innerHTML=[...state.meals]
 .sort((a,b)=>a.date.localeCompare(b.date))
 .map(m=>`
 <div class="card">
-<p class="tag">${esc(m.date)} · ${esc(m.type)}</p>
+<p class="tag">${dayNL(m.date)} · ${esc(m.type)}</p>
 <h3>${esc(state.recipes.find(r=>r.id===m.recipeId)?.name||"Recept")}</h3>
 <p class="muted">${m.servings} porties · ${m.cooked?"Bereid":"Gepland"}</p>
 <div class="row">
 ${!m.cooked?`<button onclick="cookMeal('${m.id}')">Gekookt</button>`:""}
-<button class="secondary" onclick="editMeal('${m.id}')">Bewerk/verplaats</button>
+<button class="secondary" onclick="editMeal('${m.id}')">Bewerk / verplaats</button>
 <button class="danger small" onclick="deleteMeal('${m.id}')">×</button>
 </div>
-</div>`).join("")||"<div class='card'>Nog niets gepland.</div>";
+</div>`).join("")||"<div class='card'>Nog geen maaltijden gepland.</div>";
 }
 
-/* VOORRAAD */
-
-function resetStockForm(){
-["batchEdit","sName","sQty","sExpiry","sOpened","sFrozen","sPhoto"]
-.forEach(id=>$(id).value="");
-$("sPacks").value=1;
-$("sState").value="sealed";
-}
-
-async function saveStock(){
-const name=$("sName").value.trim();
-const packs=Number($("sPacks").value);
-const qty=Number($("sQty").value);
-const unit=$("sUnit").value;
-
-if(!name||!Number.isInteger(packs)||packs<1||
-!Number.isFinite(qty)||qty<=0){
-return alert("Vul een product, aantal verpakkingen en inhoud in.");
-}
-
-const editId=$("batchEdit").value;
-if(editId&&packs!==1)return alert("Bij bewerken pas je één verpakking tegelijk aan.");
-
-const blob=await photoBlob($("sPhoto"));
-const photoId=blob?uid():"";
-const ops=blob?[{type:"put",id:photoId,data:blob}]:[];
-
-await mutate("Voorraad bewaren",s=>{
-const p=ensureProduct(s,name,unit);
-const location=$("sLocation").value;
-const expiry=$("sExpiry").value;
-const status=$("sState").value;
-const opened=$("sOpened").value;
-const frozen=$("sFrozen").value;
-
-if(editId){
-const b=s.batches.find(x=>x.id===editId);
-if(!b)throw Error("Verpakking niet gevonden");
-b.productId=p.id;
-b.qty=qty;b.unit=unit;b.location=location;
-b.expiry=expiry;b.status=status;
-b.opened=opened;b.frozen=frozen;
-if(photoId)b.photoId=photoId;
-}else{
-for(let i=0;i<packs;i++){
-addBatch(s,p.id,qty,unit,location,expiry,status,opened,frozen,photoId);
-}
-}
-},ops);
-
-resetStockForm();
-}
-
-function editBatch(id){
-const b=state.batches.find(x=>x.id===id);
-if(!b)return;
-$("batchEdit").value=id;
-$("sName").value=nameOf(b.productId);
-$("sPacks").value=1;
-$("sQty").value=b.qty;
-$("sUnit").value=b.unit;
-$("sLocation").value=b.location;
-$("sState").value=b.status;
-$("sExpiry").value=b.expiry||"";
-$("sOpened").value=b.opened||"";
-$("sFrozen").value=b.frozen||"";
-$("sName").scrollIntoView({behavior:"smooth"});
-}
-
-async function useBatch(id){
-const b=state.batches.find(x=>x.id===id);
-if(!b)return;
-const answer=prompt("Hoeveel "+b.unit+" gebruikt?",b.qty);
-if(answer===null)return;
-const qty=Number(answer.replace(",","."));
-if(!Number.isFinite(qty)||qty<=0||qty>b.qty)
-return alert("Ongeldige hoeveelheid.");
-
-await mutate("Voorraad verbruikt: "+nameOf(b.productId),s=>{
-const batch=s.batches.find(x=>x.id===id);
-batch.qty-=qty;
-s.movements.push({
-id:uid(),date:new Date().toISOString(),
-type:"consume",productId:batch.productId,
-batchId:id,qty,unit:batch.unit
-});
-s.batches=s.batches.filter(x=>x.qty>0.000001);
-});
-}
-
-async function deleteBatch(id){
-if(!confirm("Verpakking verwijderen?"))return;
-await mutate("Verpakking verwijderen",s=>{
-s.batches=s.batches.filter(x=>x.id!==id);
-});
-}
-
-async function setMinimum(id){
-const p=getProduct(state,id);
-const answer=prompt("Minimumvoorraad in "+p.unit,p.min);
-if(answer===null)return;
-const value=Number(answer.replace(",","."));
-if(!Number.isFinite(value)||value<0)return alert("Ongeldig.");
-await mutate("Minimumvoorraad wijzigen",s=>{
-getProduct(s,id).min=value;
-});
-}
-
-async function favoriteProduct(id){
-await mutate("Productfavoriet",s=>{
-const p=getProduct(s,id);
-p.favorite=!p.favorite;
-});
-}
-
-async function renameProduct(id){
-const p=getProduct(state,id);
-const name=prompt("Nieuwe productnaam",p.name);
-if(!name?.trim())return;
-if(state.products.some(x=>x.id!==id&&norm(x.name)===norm(name)))
-return alert("Deze productnaam bestaat al.");
-await mutate("Productnaam wijzigen",s=>{
-getProduct(s,id).name=name.trim();
-});
-}
-
-async function refillProduct(id){
-const p=getProduct(state,id);
-const qty=Math.max(1,p.min-totalStock(state,id,p.unit));
-await mutate("Aanvullen toevoegen",s=>{
-if(!s.shopping.some(x=>!x.done&&x.productId===id))
-addShoppingLine(s,p.name,qty,p.unit,"aanvullen");
-});
-tab("shopping");
-}
-
-function previewBulk(){
-const items=$("bulkInput").value.split("\n")
-.map(x=>x.trim()).filter(Boolean).map(parseIngredient);
-$("bulkPreview").innerHTML=items.map(i=>
-`<p>${i.estimated?"⚠️ Controleer: ":""}${i.qty} ${esc(i.unit)} ${esc(i.name)}</p>`
-).join("")+
-(items.length?`<button onclick="saveBulk()">Alles bewaren</button>`:"");
-}
-
-async function saveBulk(){
-const items=$("bulkInput").value.split("\n")
-.map(x=>x.trim()).filter(Boolean).map(parseIngredient);
-
-if(items.some(x=>x.estimated||x.qty<=0))
-return alert("Gebruik voor ieder product een exacte hoeveelheid en eenheid.");
-
-await mutate("Bulkvoorraad toevoegen",s=>{
-items.forEach(i=>{
-const p=ensureProduct(s,i.name,i.unit);
-addBatch(s,p.id,i.qty,i.unit,$("bulkLocation").value);
-});
-});
-$("bulkInput").value="";
-$("bulkPreview").innerHTML="";
-}
-
-async function saveOverview(){
-const blob=await photoBlob($("overviewPhoto"));
-if(!blob)return alert("Kies een foto.");
-const label=prompt("Naam foto, bijvoorbeeld vriezerlade 1");
-if(label===null)return;
-const id=uid();
-await mutate("Voorraadfoto toevoegen",s=>{
-if(!s.overviews)s.overviews=[];
-s.overviews.push({id,label:label||"Voorraadfoto",date:today()});
-},[{type:"put",id,data:blob}]);
-$("overviewPhoto").value="";
-}
-
-async function removeOverview(id){
-await mutate("Voorraadfoto verwijderen",s=>{
-s.overviews=(s.overviews||[]).filter(x=>x.id!==id);
-},[{type:"delete",id}]);
-}
-
-function renderStock(){
-const search=norm($("stockSearch").value);
-const location=$("stockLocationFilter").value;
-let list=state.products.filter(p=>norm(p.name).includes(search));
-
-if(stockMode==="low")list=list.filter(p=>stockState(state,p)!=="Op voorraad");
-if(stockMode==="expiry")list=list.filter(p=>
-state.batches.some(b=>b.productId===p.id&&b.expiry&&b.expiry<=addDays(today(),7))
-);
-
-$("stockList").innerHTML=list.map(p=>{
-const batches=state.batches.filter(b=>b.productId===p.id&&
-(!location||b.location===location));
-if(location&&!batches.length)return "";
-
-return`
-<div class="card">
-<div class="row">
-<h3 class="grow">${esc(p.name)}</h3>
-<button class="secondary small" onclick="favoriteProduct('${p.id}')">${p.favorite?"❤️":"♡"}</button>
-<button class="secondary small" onclick="renameProduct('${p.id}')">Naam</button>
-</div>
-<p><b>${totalStock(state,p.id,p.unit).toFixed(2)} ${esc(p.unit)}</b>
-<span class="pill">${stockState(state,p)}</span></p>
-${batches.map(b=>`
-<div class="item">
-${b.photoId?`<img id="photo-${b.id}" class="photo" alt="Productfoto">`:""}
-<div class="grow">
-<b>${b.qty} ${esc(b.unit)}</b>
-<br><small class="muted">${esc(b.location)} · ${esc(b.status)}
-${b.expiry?" · Houdbaar "+esc(b.expiry):""}
-${b.opened?" · Geopend "+esc(b.opened):""}
-${b.frozen?" · Ingevroren "+esc(b.frozen):""}</small>
-</div>
-<button class="secondary small" onclick="useBatch('${b.id}')">Gebruik</button>
-<button class="secondary small" onclick="editBatch('${b.id}')">Bewerk</button>
-<button class="danger small" onclick="deleteBatch('${b.id}')">×</button>
-</div>`).join("")}
-<div class="row">
-<button class="secondary small" onclick="setMinimum('${p.id}')">Minimum</button>
-<button class="secondary small" onclick="refillProduct('${p.id}')">Aanvullen</button>
-</div>
-</div>`;
-}).join("")||"<div class='card'>Geen producten gevonden.</div>";
-
-$("overviewList").innerHTML=(state.overviews||[]).map(x=>`
-<div class="item">
-<img id="overview-${x.id}" class="photo" alt="Voorraadfoto">
-<span class="grow">${esc(x.label)}</span>
-<button class="danger small" onclick="removeOverview('${x.id}')">×</button>
-</div>`).join("");
-
-state.batches.filter(x=>x.photoId).forEach(x=>
-attachPhoto("photo-"+x.id,x.photoId)
-);
-(state.overviews||[]).forEach(x=>
-attachPhoto("overview-"+x.id,x.id)
-);
-}
-
-/* BARCODE */
-
-async function scanBarcode(){
-if(!("BarcodeDetector" in window)){
-const code=prompt("Barcode handmatig invoeren:");
-if(code)lookupBarcode(code);
-return;
-}
-try{
-const stream=await navigator.mediaDevices.getUserMedia({
-video:{facingMode:"environment"}
-});
-const video=document.createElement("video");
-video.setAttribute("playsinline","");
-video.style.cssText="position:fixed;inset:10%;width:80%;height:70%;z-index:999;background:black";
-const close=document.createElement("button");
-close.textContent="Sluiten";
-close.style.cssText="position:fixed;bottom:10%;left:10%;z-index:1000";
-document.body.append(video,close);
-video.srcObject=stream;
-await video.play();
-let active=true;
-const stop=()=>{
-active=false;
-stream.getTracks().forEach(t=>t.stop());
-video.remove();close.remove();
-};
-close.onclick=stop;
-const detector=new BarcodeDetector({
-formats:["ean_13","ean_8","upc_a","upc_e"]
-});
-async function scan(){
-if(!active)return;
-try{
-const result=await detector.detect(video);
-if(result.length){
-const code=result[0].rawValue;
-stop();
-lookupBarcode(code);
-return;
-}
-}catch(e){}
-if(active)setTimeout(scan,300);
-}
-scan();
-}catch(e){
-const code=prompt("Camera niet beschikbaar. Barcode invoeren:");
-if(code)lookupBarcode(code);
-}
-}
-
-async function lookupBarcode(code){
-try{
-const response=await fetch(
-"https://world.openfoodfacts.org/api/v2/product/"+
-encodeURIComponent(code)+"?fields=product_name,quantity"
-);
-if(!response.ok)throw Error();
-const result=await response.json();
-if(result.status===1&&result.product?.product_name){
-$("sName").value=result.product.product_name;
-alert("Product gevonden. Controleer de hoeveelheid.");
-}else alert("Barcode niet gevonden.");
-}catch(e){alert("Productinformatie niet beschikbaar.");}
-}
-
-/* BOODSCHAPPEN EN WINKELMODUS */
+/* BOODSCHAPPEN */
 
 function resetShoppingForm(){
 ["shoppingEdit","qName","qPrice"].forEach(id=>$(id).value="");
 $("qQty").value=1;
 }
-
 function editShopping(id){
 const q=state.shopping.find(x=>x.id===id);
 if(!q)return;
 tab("shopping");
 $("shoppingEdit").value=id;
 $("qName").value=nameOf(q.productId);
-$("qQty").value=q.qty;
-$("qUnit").value=q.unit;
+$("qQty").value=q.packs;
 $("qStore").value=q.storeId;
 $("qPrice").value=q.estimated||"";
-$("qName").scrollIntoView({behavior:"smooth"});
+$("shoppingForm").scrollIntoView({behavior:"smooth"});
 }
-
 async function saveShopping(){
-const name=$("qName").value.trim();
-const qty=Number($("qQty").value);
-if(!name||!Number.isFinite(qty)||qty<=0)
-return alert("Vul product en hoeveelheid in.");
-
+const name=$("qName").value.trim(),packs=Number($("qQty").value);
+if(!name||!Number.isInteger(packs)||packs<1)
+return alert("Vul product en aantal verpakkingen in.");
 const id=$("shoppingEdit").value;
 await mutate("Boodschap bewaren",s=>{
-const p=ensureProduct(s,name,$("qUnit").value);
+const p=ensureProduct(s,name);
 if(id){
 const q=s.shopping.find(x=>x.id===id);
-if(!q)throw Error();
-q.productId=p.id;q.qty=qty;q.unit=$("qUnit").value;
+q.productId=p.id;q.packs=packs;
 q.storeId=$("qStore").value;
-q.estimated=number($("qPrice").value);
-}else{
-addShoppingLine(s,name,qty,$("qUnit").value,
-"handmatig",$("qStore").value,$("qPrice").value);
-}
+q.estimated=num($("qPrice").value);
+}else addShopping(s,name,packs,"handmatig",
+$("qStore").value,$("qPrice").value);
 });
 resetShoppingForm();
 }
-
 async function markPurchased(id){
 await mutate("Boodschap gekocht",s=>{
 const q=s.shopping.find(x=>x.id===id);
 q.done=true;
 });
-if(confirm("Ook toevoegen aan je voorraad?"))
-await purchasedToStock(id);
 }
-
-async function purchasedToStock(id){
-const q=state.shopping.find(x=>x.id===id);
-if(!q||q.stocked)return;
-const location=prompt("Waar bewaar je dit product?","Droge voorraad");
-if(location===null)return;
-const expiry=prompt("Houdbaarheidsdatum (JJJJ-MM-DD), optioneel:","");
-if(expiry===null)return;
-
-await mutate("Aankoop naar voorraad",s=>{
-const item=s.shopping.find(x=>x.id===id);
-addBatch(s,item.productId,item.qty,item.unit,location,expiry);
-item.stocked=true;
-});
-}
-
 async function undoPurchased(id){
 await mutate("Boodschap terugzetten",s=>{
-const q=s.shopping.find(x=>x.id===id);
-q.done=false;
+s.shopping.find(x=>x.id===id).done=false;
 });
 }
-
 async function deleteShopping(id){
 await mutate("Boodschap verwijderen",s=>{
 s.shopping=s.shopping.filter(x=>x.id!==id);
 });
 }
-
+async function finishShopping(){
+const bought=state.shopping.filter(x=>x.done&&!x.stocked);
+if(!bought.length)return alert("Geen nieuwe aankopen om te verwerken.");
+if(!confirm("Gekochte producten ook aan je voorraad toevoegen?"))
+return;
+await mutate("Boodschappen naar voorraad",s=>{
+for(const q of s.shopping.filter(x=>x.done&&!x.stocked)){
+const p=product(s,q.productId);
+const old=batchesFor(s,p.id)[0];
+addBatch(s,p.id,num(q.packs),
+old?.qty||1,old?.unit||p.unit,
+old?.location||"Voorraadkast");
+q.stocked=true;
+}
+});
+alert("Aankopen verwerkt. Controleer bij nieuwe producten eventueel de verpakkingsinhoud.");
+}
 async function clearPurchased(){
-if(!confirm("Gekochte boodschappen opruimen?"))return;
-await mutate("Gekochte boodschappen opruimen",s=>{
-if(!s.purchaseArchive)s.purchaseArchive=[];
+if(!confirm("Gekochte boodschappen archiveren?"))return;
+await mutate("Boodschappen archiveren",s=>{
 s.purchaseArchive.push(...s.shopping.filter(x=>x.done));
 s.shopping=s.shopping.filter(x=>!x.done);
 });
 }
-
 async function addFavorites(){
 await mutate("Favorieten toevoegen",s=>{
-s.products.filter(p=>p.favorite).forEach(p=>{
+s.products.filter(x=>x.favorite).forEach(p=>{
 if(!s.shopping.some(x=>!x.done&&x.productId===p.id))
-addShoppingLine(s,p.name,1,p.unit,"favoriet");
+addShopping(s,p.name,1,"favoriet");
 });
 });
 }
-
 async function reusePurchased(){
-const archive=[
-...(state.purchaseArchive||[]),
-...state.shopping.filter(x=>x.done)
-];
+const all=[...state.purchaseArchive,...state.shopping.filter(x=>x.done)];
 const latest=new Map();
-archive.forEach(x=>latest.set(x.productId,x));
-
-if(!latest.size)return alert("Nog geen eerdere aankopen.");
-
-await mutate("Eerdere boodschappen hergebruiken",s=>{
-latest.forEach(x=>{
-if(!s.shopping.some(y=>!y.done&&y.productId===x.productId))
-addShoppingLine(s,nameOf(x.productId),x.qty,x.unit,
-"herhaald",x.storeId,x.estimated);
+all.forEach(x=>latest.set(x.productId,x));
+if(!latest.size)return alert("Nog geen eerdere boodschappen.");
+await mutate("Eerdere lijst hergebruiken",s=>{
+latest.forEach(q=>{
+if(!s.shopping.some(x=>!x.done&&x.productId===q.productId))
+addShopping(s,nameOf(q.productId),num(q.packs),"herhaald",q.storeId);
 });
 });
 }
-
 function shoppingHTML(q){
 return`
 <div class="item">
@@ -1651,45 +1407,38 @@ return`
 onchange="${q.done?"undoPurchased":"markPurchased"}('${q.id}')">
 <div class="grow">
 <b>${esc(nameOf(q.productId))}</b>
-<br><small class="muted">${q.qty} ${esc(q.unit)}
+<br><small class="muted">${fmt(q.packs)} verpakking(en)
 · ${esc(storeName(q.storeId))}
-${q.estimated?" · "+euro(q.estimated):""}
 ${q.stocked?" · In voorraad":""}</small>
 </div>
 <button class="secondary small" onclick="editShopping('${q.id}')">Bewerk</button>
-${q.done&&!q.stocked?`
-<button class="secondary small" onclick="purchasedToStock('${q.id}')">Voorraad</button>`:""}
 <button class="danger small" onclick="deleteShopping('${q.id}')">×</button>
 </div>`;
 }
-
 function renderShopping(){
 $("pendingList").innerHTML=state.shopping.filter(x=>!x.done)
 .map(shoppingHTML).join("")||"<p class='muted'>Alles gekocht!</p>";
 $("purchasedList").innerHTML=state.shopping.filter(x=>x.done)
 .map(shoppingHTML).join("")||"<p class='muted'>Nog niets gekocht.</p>";
-
 const store=$("shopModeStore").value;
-$("shopModeList").innerHTML=state.shopping.filter(x=>
-!x.done&&(!store||x.storeId===store)
+$("shopModeList").innerHTML=state.shopping.filter(q=>
+!q.done&&(!store||!q.storeId||q.storeId===store)
 ).map(shoppingHTML).join("")||
 "<p class='muted'>Geen boodschappen voor deze winkel.</p>";
 }
 
-/* BUDGET EN KASSABONNEN */
+/* BUDGET */
 
 async function saveBudget(){
 await mutate("Budget wijzigen",s=>{
-s.settings.weeklyBudget=number($("weeklyBudget").value);
-s.settings.monthlyBudget=number($("monthlyBudget").value);
+s.settings.weeklyBudget=num($("weeklyBudget").value);
+s.settings.monthlyBudget=num($("monthlyBudget").value);
 });
 }
-
 function resetReceipt(){
 ["receiptEdit","receiptTotal","receiptNote","receiptPhoto"]
 .forEach(id=>$(id).value="");
 }
-
 function editReceipt(id){
 const r=state.receipts.find(x=>x.id===id);
 if(!r)return;
@@ -1699,50 +1448,41 @@ $("receiptDate").value=r.date;
 $("receiptTotal").value=r.total;
 $("receiptNote").value=r.note||"";
 }
-
 async function saveReceipt(){
 const total=Number($("receiptTotal").value);
 if(!Number.isFinite(total)||total<0)return alert("Ongeldig bedrag.");
-
-const blob=await photoBlob($("receiptPhoto"));
+const blob=await compressPhoto($("receiptPhoto"));
 const photoId=blob?uid():"";
 const id=$("receiptEdit").value;
-
 await mutate("Kassabon bewaren",s=>{
 const old=s.receipts.find(x=>x.id===id);
 const value={
-id:id||uid(),
-storeId:$("receiptStore").value,
+id:id||uid(),storeId:$("receiptStore").value,
 date:$("receiptDate").value||today(),
-total,
-note:$("receiptNote").value.trim(),
+total,note:$("receiptNote").value.trim(),
 photoId:photoId||old?.photoId||""
 };
 if(old)Object.assign(old,value);
 else s.receipts.push(value);
 },blob?[{type:"put",id:photoId,data:blob}]:[]);
-
 resetReceipt();
 }
-
 async function deleteReceipt(id){
 if(!confirm("Kassabon verwijderen?"))return;
 await mutate("Kassabon verwijderen",s=>{
 s.receipts=s.receipts.filter(x=>x.id!==id);
 });
 }
-
 function renderBudget(){
+if(document.activeElement!==$("weeklyBudget"))
 $("weeklyBudget").value=state.settings.weeklyBudget;
+if(document.activeElement!==$("monthlyBudget"))
 $("monthlyBudget").value=state.settings.monthlyBudget;
-
-const start=weekStart(today());
-const month=today().slice(0,7);
+const start=weekStart(today()),month=today().slice(0,7);
 const week=state.receipts.filter(x=>x.date>=start&&x.date<=addDays(start,6))
-.reduce((sum,x)=>sum+x.total,0);
+.reduce((n,x)=>n+num(x.total),0);
 const monthly=state.receipts.filter(x=>x.date.startsWith(month))
-.reduce((sum,x)=>sum+x.total,0);
-
+.reduce((n,x)=>n+num(x.total),0);
 $("budgetSummary").innerHTML=`
 <div class="grid">
 <div class="stat">Deze week<strong>${euro(week)}</strong>
@@ -1750,22 +1490,19 @@ $("budgetSummary").innerHTML=`
 <div class="stat">Deze maand<strong>${euro(monthly)}</strong>
 <small class="muted">Over: ${euro(state.settings.monthlyBudget-monthly)}</small></div>
 </div>`;
-
 $("receiptList").innerHTML=[...state.receipts]
 .sort((a,b)=>b.date.localeCompare(a.date))
 .map(r=>`
 <div class="item">
-${r.photoId?`<img id="receipt-${r.id}" class="photo" alt="Kassabon">`:""}
+${r.photoId?`<img class="photo" id="receipt-${r.id}">`:""}
 <div class="grow"><b>${euro(r.total)}</b>
-<br><small class="muted">${esc(r.date)}
-· ${esc(storeName(r.storeId))} ${esc(r.note||"")}</small></div>
+<br><small class="muted">${dateNL(r.date)} · ${esc(storeName(r.storeId))}
+${esc(r.note||"")}</small></div>
 <button class="secondary small" onclick="editReceipt('${r.id}')">Bewerk</button>
 <button class="danger small" onclick="deleteReceipt('${r.id}')">×</button>
 </div>`).join("")||"<p class='muted'>Nog geen kassabonnen.</p>";
-
 state.receipts.filter(x=>x.photoId).forEach(x=>
-attachPhoto("receipt-"+x.id,x.photoId)
-);
+showPhoto("receipt-"+x.id,x.photoId));
 }
 
 /* PLANNING */
@@ -1778,12 +1515,10 @@ $("taskTitle").value=t.title;
 $("taskDate").value=t.date;
 $("taskRepeat").value=t.repeat;
 }
-
 async function saveTask(){
 const title=$("taskTitle").value.trim();
-if(!title)return;
+if(!title)return alert("Vul een taak in.");
 const id=$("taskEdit").value;
-
 await mutate("Taak bewaren",s=>{
 const old=s.tasks.find(x=>x.id===id);
 const value={
@@ -1796,23 +1531,42 @@ else s.tasks.push(value);
 $("taskEdit").value="";
 $("taskTitle").value="";
 }
-
 async function finishTask(id){
 await mutate("Taak afronden",s=>{
 const t=s.tasks.find(x=>x.id===id);
-if(t.repeat==="none"){t.done=true;return;}
+if(t.repeat==="none"){t.done=true;return}
 if(t.repeat==="daily")t.date=addDays(t.date,1);
 if(t.repeat==="weekly")t.date=addDays(t.date,7);
-if(t.repeat==="monthly")t.date=monthLater(t.date);
+if(t.repeat==="monthly")t.date=nextMonth(t.date);
 });
 }
-
 async function deleteTask(id){
 await mutate("Taak verwijderen",s=>{
 s.tasks=s.tasks.filter(x=>x.id!==id);
 });
 }
+const repeatNL={
+none:"Eenmalig",daily:"Dagelijks",
+weekly:"Wekelijks",monthly:"Maandelijks"
+};
 
+/* FLEXIBELE PROJECTINVOER */
+
+function parseProjectItems(text){
+return [...new Set(
+text.replace(/(\d),(\d)/g,"$1§$2")
+.split(/[,;\n]+|\.(?=\s|$)/)
+.map(x=>x.replace(/§/g,",").trim().replace(/\s+/g," "))
+.filter(Boolean)
+.map(x=>norm(x))
+)].map(name=>({id:uid(),name,done:false}));
+}
+function previewProjectItems(){
+const items=parseProjectItems($("projectItems").value);
+$("projectPreview").innerHTML=items.map(x=>
+`<p class="pill">${esc(x.name)}</p>`
+).join(" ")||"<p class='muted'>Geen benodigdheden gevonden.</p>";
+}
 function editProject(id){
 const p=state.projects.find(x=>x.id===id);
 if(!p)return;
@@ -1821,25 +1575,23 @@ $("projectTitle").value=p.title;
 $("projectType").value=p.type;
 $("projectDate").value=p.date;
 $("projectBudget").value=p.budget;
-$("projectItems").value=p.items.map(x=>x.name).join("\n");
+$("projectItems").value=p.items.map(x=>x.name).join(", ");
+$("projectForm").scrollIntoView({behavior:"smooth"});
 }
-
 async function saveProject(){
 const title=$("projectTitle").value.trim();
-if(!title)return;
+if(!title)return alert("Vul een projectnaam in.");
 const id=$("projectEdit").value;
-
 await mutate("Project bewaren",s=>{
 const old=s.projects.find(x=>x.id===id);
-const names=$("projectItems").value.split("\n").map(x=>x.trim()).filter(Boolean);
-const items=names.map(name=>{
-const previous=old?.items.find(x=>norm(x.name)===norm(name));
-return previous?{...previous}:{id:uid(),name,done:false};
+const items=parseProjectItems($("projectItems").value).map(i=>{
+const previous=old?.items.find(x=>norm(x.name)===norm(i.name));
+return previous||i;
 });
 const value={
 id:id||uid(),title,type:$("projectType").value,
 date:$("projectDate").value,
-budget:number($("projectBudget").value),items
+budget:num($("projectBudget").value),items
 };
 if(old)Object.assign(old,value);
 else s.projects.push(value);
@@ -1847,99 +1599,103 @@ else s.projects.push(value);
 $("projectEdit").value="";
 $("projectTitle").value="";
 $("projectItems").value="";
+$("projectPreview").innerHTML="";
 }
-
 async function toggleProjectItem(pid,iid){
 await mutate("Checklist wijzigen",s=>{
 const item=s.projects.find(x=>x.id===pid)?.items.find(x=>x.id===iid);
 if(item)item.done=!item.done;
 });
 }
-
+function projectItemOnList(pid,name){
+const p=byName(state,name);
+return !!p&&state.shopping.some(x=>!x.done&&x.productId===p.id);
+}
 async function projectToShopping(pid,iid){
 const item=state.projects.find(x=>x.id===pid)?.items.find(x=>x.id===iid);
 if(!item)return;
-await mutate("Projectboodschap",s=>{
-addShoppingLine(s,item.name,1,"st","project");
+await mutate("Projectboodschap toevoegen",s=>{
+addShopping(s,item.name,1,"project","",0,pid);
 });
-tab("shopping");
 }
-
+async function allProjectShopping(pid){
+const p=state.projects.find(x=>x.id===pid);
+if(!p)return;
+await mutate("Projectbenodigdheden toevoegen",s=>{
+p.items.filter(x=>!x.done).forEach(i=>
+addShopping(s,i.name,1,"project","",0,pid));
+});
+}
 async function deleteProject(id){
 if(!confirm("Project verwijderen?"))return;
 await mutate("Project verwijderen",s=>{
 s.projects=s.projects.filter(x=>x.id!==id);
 });
 }
-
 function renderPlanning(){
 $("taskList").innerHTML=state.tasks.filter(x=>!x.done)
 .sort((a,b)=>a.date.localeCompare(b.date))
 .map(t=>`
 <div class="item">
 <div class="grow"><b>${esc(t.title)}</b>
-<br><small class="muted">${esc(t.date)} · ${esc(t.repeat)}</small></div>
+<br><small class="muted">${dayNL(t.date)} · ${repeatNL[t.repeat]||esc(t.repeat)}</small></div>
 <button class="secondary small" onclick="finishTask('${t.id}')">Klaar</button>
 <button class="secondary small" onclick="editTask('${t.id}')">Bewerk</button>
 <button class="danger small" onclick="deleteTask('${t.id}')">×</button>
 </div>`).join("");
-
 $("projectList").innerHTML=state.projects.map(p=>`
 <div class="card">
 <h3>${esc(p.title)}</h3>
-<p class="muted">${esc(p.type)} · ${esc(p.date)} · ${euro(p.budget)}</p>
+<p class="muted">${esc(p.type)} · ${dateNL(p.date)} · ${euro(p.budget)}</p>
 ${p.items.map(i=>`
 <div class="item">
 <input type="checkbox" ${i.done?"checked":""}
 onchange="toggleProjectItem('${p.id}','${i.id}')">
 <span class="grow">${esc(i.name)}</span>
-<button class="secondary small" onclick="projectToShopping('${p.id}','${i.id}')">🛒</button>
+<button class="secondary small" onclick="projectToShopping('${p.id}','${i.id}')">
+${projectItemOnList(p.id,i.name)?"✓":"🛒"}</button>
 </div>`).join("")}
 <div class="row">
+<button onclick="allProjectShopping('${p.id}')">Alle benodigdheden toevoegen</button>
 <button class="secondary small" onclick="editProject('${p.id}')">Bewerk</button>
-<button class="danger small" onclick="deleteProject('${p.id}')">Verwijder</button>
+<button class="danger small" onclick="deleteProject('${p.id}')">×</button>
 </div>
 </div>`).join("");
 }
 
-/* WINKELS */
+/* WINKELS EN GESCHIEDENIS */
 
 async function toggleStore(id){
 await mutate("Winkelvoorkeur",s=>{
-const store=s.stores.find(x=>x.id===id);
-store.enabled=!store.enabled;
+const x=s.stores.find(x=>x.id===id);
+x.enabled=!x.enabled;
 });
 }
-
 function renderMore(){
 $("storeSettings").innerHTML=state.stores.map(s=>`
 <div class="item">
 <input type="checkbox" ${s.enabled?"checked":""}
 onchange="toggleStore('${s.id}')">
-<span class="grow">${esc(s.name)} <small class="muted">${s.country}</small></span>
+<span class="grow">${esc(s.name)} · ${s.country}</span>
 </div>`).join("");
-
 $("folderList").innerHTML=state.stores.filter(s=>
-s.country==="NL"&&s.enabled&&s.url
-).map(s=>`
-<div class="item">
-<span class="grow">${esc(s.name)}</span>
+s.country==="NL"&&s.enabled&&s.url)
+.map(s=>`
+<div class="item"><span class="grow">${esc(s.name)}</span>
 <a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">
-<button class="secondary">Aanbiedingen</button>
-</a>
-</div>`).join("");
+<button class="secondary">Aanbiedingen</button></a></div>
+`).join("");
 }
-
 function renderHistory(){
 $("historyList").innerHTML=[...logs]
 .sort((a,b)=>b.date.localeCompare(a.date))
-.slice(0,30)
-.map(x=>`<p><small class="muted">${esc(x.date.slice(0,16).replace("T"," "))}</small>
+.slice(0,30).map(x=>`
+<p><small class="muted">${esc(x.date.slice(0,16).replace("T"," "))}</small>
 · ${esc(x.label)}</p>`).join("")||
 "<p class='muted'>Nog geen wijzigingen.</p>";
 }
 
-/* BACK-UP INCLUSIEF FOTO'S */
+/* BACK-UP */
 
 function blobToDataURL(blob){
 return new Promise((resolve,reject)=>{
@@ -1949,7 +1705,6 @@ reader.onerror=()=>reject(reader.error);
 reader.readAsDataURL(blob);
 });
 }
-
 function dataURLToBlob(data){
 const parts=data.split(",");
 const mime=parts[0].match(/data:([^;]+)/)?.[1]||"image/jpeg";
@@ -1958,36 +1713,23 @@ const array=new Uint8Array(bytes.length);
 for(let i=0;i<bytes.length;i++)array[i]=bytes.charCodeAt(i);
 return new Blob([array],{type:mime});
 }
-
 async function exportBackup(){
 try{
-const photoKeys=await new Promise((resolve,reject)=>{
-const tx=db.transaction("photos","readonly");
-const req=tx.objectStore("photos").getAllKeys();
-req.onsuccess=()=>resolve(req.result);
-req.onerror=()=>reject(req.error);
-});
-
 const photos={};
-for(const id of photoKeys){
-const value=await readStore("photos",id);
-photos[id]=typeof value==="string"?value:
-await blobToDataURL(value);
+for(const id of await getKeys("photos")){
+const value=await get("photos",id);
+photos[id]=typeof value==="string"?value:await blobToDataURL(value);
 }
-
 const backup={
-app:"ThuisBasis",
-version:2,
+app:"ThuisBasis",version:3,
 date:new Date().toISOString(),
-data:state,
-photos
+data:state,photos
 };
-
 const blob=new Blob([JSON.stringify(backup)],{type:"application/json"});
 const url=URL.createObjectURL(blob);
 const a=document.createElement("a");
 a.href=url;
-a.download="thuisbasis-volledig-"+today()+".json";
+a.download="thuisbasis-backup-"+today()+".json";
 a.click();
 setTimeout(()=>URL.revokeObjectURL(url),1000);
 }catch(e){
@@ -1995,28 +1737,18 @@ console.error(e);
 alert("Back-up maken mislukt.");
 }
 }
-
 async function importBackup(event){
 const file=event.target.files?.[0];
 if(!file)return;
-
 try{
 const parsed=JSON.parse(await file.text());
-let incoming=parsed.data||parsed;
-
-if(!Array.isArray(incoming.products)||!Array.isArray(incoming.batches)){
-incoming=migrateLegacy(incoming);
-}
-
+const incoming=parsed.data||parsed;
 if(!Array.isArray(incoming.recipes)||!Array.isArray(incoming.shopping))
 throw Error("Ongeldige back-up");
-
-if(!confirm("Alle huidige gegevens vervangen door deze back-up?"))return;
-
+if(!confirm("Huidige gegevens vervangen door deze back-up?"))return;
+const next=incoming.version===3?incoming:migrate(incoming);
 const photos=Object.entries(parsed.photos||{});
-const next={...freshState(),...incoming};
-
-await transactionWrite(["app","photos","history"],tx=>{
+await write(["app","photos","history"],tx=>{
 tx.objectStore("app").put(next,"state");
 tx.objectStore("photos").clear();
 tx.objectStore("history").clear();
@@ -2027,33 +1759,26 @@ dataURLToBlob(data):data,id
 );
 }
 });
-
-state=next;
-logs=[];
-render();
+state=next;logs=[];render();
 alert("Back-up hersteld.");
 }catch(e){
 console.error(e);
-alert("Back-up herstellen mislukt. Controleer het bestand.");
+alert("Herstellen mislukt. Controleer het bestand.");
 }
 event.target.value="";
 }
 
-/* STARTEN */
+/* OPSTARTEN */
 
 async function initialize(){
 $("status").textContent="ThuisBasis laden...";
-
 try{
 db=await openDB();
-const saved=await readStore("app","state");
-
+const saved=await get("app","state");
 if(saved){
-state=saved.version===2?saved:migrateLegacy(saved);
-if(saved.version!==2){
-await transactionWrite(["app"],tx=>
-tx.objectStore("app").put(state,"state")
-);
+state=saved.version===3?saved:migrate(saved);
+if(saved.version!==3){
+await write(["app"],tx=>tx.objectStore("app").put(state,"state"));
 }
 }else{
 let legacy=null;
@@ -2063,40 +1788,31 @@ for(const key of [
 ]){
 try{
 const value=localStorage.getItem(key);
-if(value){legacy=JSON.parse(value);break;}
+if(value){legacy=JSON.parse(value);break}
 }catch(e){}
 }
-state=legacy?migrateLegacy(legacy):freshState();
-await transactionWrite(["app"],tx=>
-tx.objectStore("app").put(state,"state")
-);
+state=legacy?migrate(legacy):fresh();
+await write(["app"],tx=>tx.objectStore("app").put(state,"state"));
 }
-
-logs=(await allStore("history")).map(x=>({
+logs=(await getAll("history")).map(x=>({
 id:x.id,date:x.date,label:x.label
 }));
-
 $("mealDate").value=today();
 $("receiptDate").value=today();
 $("taskDate").value=today();
-
 ["recipeSearch","recipeFilter"].forEach(id=>
-$(id).addEventListener("input",renderRecipes)
-);
+$(id).addEventListener("input",renderRecipes));
 ["stockSearch","stockLocationFilter"].forEach(id=>
-$(id).addEventListener("input",renderStock)
-);
+$(id).addEventListener("input",renderStock));
 $("shopModeStore").addEventListener("change",renderShopping);
-
 tab("home");
 $("status").textContent="✓ ThuisBasis is klaar";
 }catch(e){
 console.error(e);
-$("status").textContent="Database kon niet worden geopend.";
+$("status").textContent="Opslag kon niet worden geopend.";
 alert("Controleer of Safari lokale opslag toestaat.");
 }
 }
-
 initialize();
 </script>
 </body>
