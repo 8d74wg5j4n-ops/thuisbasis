@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ThuisBasis - Veilig gegevensonderzoek</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f7f8f5;color:#24382f;font:16px Arial,sans-serif}
+header{background:#238765;color:white;padding:24px 18px}
+h1{font-size:25px;margin:0 0 8px}
+main{max-width:700px;margin:auto;padding:15px}
+.card{background:white;border-radius:16px;padding:17px;margin:14px 0;box-shadow:0 3px 12px #0000000a}
+button{border:0;border-radius:10px;padding:13px;background:#238765;color:white;font-size:15px;margin:5px 5px 5px 0}
+.secondary{background:#e5f1e9;color:#18553e}
+small,.muted{color:#68796e}
+.item{border-top:1px solid #e1e8e2;padding:13px 0}
+.good{color:#187451}
+.warn{color:#9b5815}
+code{overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<header>
+<h1>🔎 ThuisBasis - Gegevensonderzoek</h1>
+<div>Veilig zoeken naar je oude gegevens</div>
+</header>
+<main>
+<div class="card">
+<strong>Alleen lezen</strong>
+<p>Deze pagina verandert niets aan je bestaande ThuisBasis. Er wordt niets automatisch hersteld.</p>
+<button onclick="onderzoek()">Onderzoek starten</button>
+<button class="secondary" onclick="exporteren()">Onderzoeksback-up bewaren</button>
+<p class="muted">Bewaar de back-up voordat we later iets herstellen. Deel het bestand niet openbaar: het kan privégegevens bevatten.</p>
+</div>
+<div id="resultaat" class="card">
+Tik op 'Onderzoek starten'.
+</div>
+<div id="geschiedenis"></div>
+</main>
+<script>
+"use strict";
+
+let onderzoekData=null;
+const $=id=>document.getElementById(id);
+
+function veilig(s){
+return String(s??"").replace(/[&<>"']/g,c=>({
+"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+}[c]));
+}
+
+function telling(s){
+if(!s||typeof s!=="object")return "Geen gegevens";
+return [
+"Recepten: "+(s.recipes?.length||0),
+"Taken: "+(s.tasks?.length||0),
+"Projecten: "+(s.projects?.length||0),
+"Boodschappen: "+(s.shopping?.length||0),
+"Voorraadproducten: "+(s.products?.length||s.stock?.length||0)
+].join(" · ");
+}
+
+function gevonden(s){
+if(!s||typeof s!=="object")return [];
+let lijst=[];
+for(const r of s.recipes||[]){
+if(/test kip/i.test(r.name||""))
+lijst.push("Recept: "+r.name);
+}
+for(const p of s.projects||[]){
+if(/brandweer/i.test(p.title||p.name||""))
+lijst.push("Project: "+(p.title||p.name));
+}
+for(const t of s.tasks||[]){
+if(/bedden|beddengoed/i.test(t.title||t.name||""))
+lijst.push("Taak: "+(t.title||t.name));
+}
+return lijst;
+}
+
+function openDB(){
+return new Promise((resolve,reject)=>{
+const req=indexedDB.open("thuisbasis-db");
+req.onsuccess=()=>resolve(req.result);
+req.onerror=()=>reject(req.error);
+req.onblocked=()=>reject(Error("Database geblokkeerd"));
+});
+}
+
+function lezen(db,store,key=null,alles=false){
+return new Promise((resolve,reject)=>{
+if(!db.objectStoreNames.contains(store)){
+resolve(alles?[]:null);return;
+}
+const tx=db.transaction(store,"readonly");
+const req=alles?
+tx.objectStore(store).getAll():
+tx.objectStore(store).get(key);
+req.onsuccess=()=>resolve(req.result);
+req.onerror=()=>reject(req.error);
+});
+}
+
+async function onderzoek(){
+$("resultaat").textContent="Bezig met lezen...";
+$("geschiedenis").innerHTML="";
+try{
+const db=await openDB();
+const huidige=await lezen(db,"app","state");
+const history=await lezen(db,"history",null,true);
+const photos=await lezen(db,"photos",null,true);
+db.close();
+
+const legacy={};
+for(const key of [
+"thuisbasis-v05","thuisbasis-v04",
+"thuisbasis-v03","thuisbasis-v02"
+]){
+try{
+const raw=localStorage.getItem(key);
+if(raw)legacy[key]=JSON.parse(raw);
+}catch(e){
+legacy[key]={leesfout:true};
+}
+}
+
+history.sort((a,b)=>
+String(b.date||"").localeCompare(String(a.date||""))
+);
+
+onderzoekData={
+huidige,
+history,
+legacy,
+photoCount:photos.length,
+onderzocht:new Date().toISOString()
+};
+
+let html="<h2>Onderzoeksresultaten</h2>";
+html+="<p><strong>Huidige gegevens</strong></p>";
+html+="<p>"+veilig(telling(huidige))+"</p>";
+html+="<p>Gegevensversie: "+veilig(huidige?.version??"onbekend")+"</p>";
+html+="<p>Oude momentopnames: <strong>"+history.length+"</strong></p>";
+html+="<p>Foto's in database: "+photos.length+"</p>";
+html+="<p>Oude lokale opslag: "+Object.keys(legacy).length+" gevonden</p>";
+
+let matches=[];
+const check=(s,bron)=>{
+for(const naam of gevonden(s))matches.push(bron+": "+naam);
+};
+
+check(huidige,"Huidig");
+history.forEach((h,i)=>check(h.before,"Momentopname "+(i+1)));
+Object.entries(legacy).forEach(([key,s])=>check(s,key));
+
+if(matches.length){
+html+="<h3 class='good'>Mogelijk teruggevonden!</h3>";
+html+=matches.slice(0,30).map(x=>
+"<p>✅ "+veilig(x)+"</p>"
+).join("");
+}else{
+html+="<p class='warn'>De drie gezochte testgegevens zijn niet aangetroffen in de onderzochte opslag.</p>";
+}
+
+$("resultaat").innerHTML=html;
+
+$("geschiedenis").innerHTML=
+"<div class='card'><h2>Wijzigingsgeschiedenis</h2>"+
+(history.length?
+history.slice(0,50).map((h,i)=>
+"<div class='item'><strong>Momentopname "+(i+1)+"</strong>"+
+"<p>"+veilig(h.label||"Onbekende wijziging")+"</p>"+
+"<small>"+veilig(h.date||"Geen datum")+"</small>"+
+"<p>"+veilig(telling(h.before))+"</p>"+
+"</div>"
+).join(""):
+"<p>Geen oude momentopnames gevonden.</p>")+
+"</div>";
+
+}catch(e){
+$("resultaat").innerHTML=
+"<h2>Onderzoek niet gelukt</h2><p>"+
+veilig(e.message)+"</p>";
+}
+}
+
+function exporteren(){
+if(!onderzoekData){
+alert("Start eerst het onderzoek.");return;
+}
+const blob=new Blob(
+[JSON.stringify(onderzoekData,null,2)],
+{type:"application/json"}
+);
+const url=URL.createObjectURL(blob);
+const a=document.createElement("a");
+a.href=url;
+a.download="thuisbasis-onderzoek.json";
+document.body.appendChild(a);
+a.click();
+a.remove();
+setTimeout(()=>URL.revokeObjectURL(url),3000);
+}
+</script>
+</body>
+</html>
